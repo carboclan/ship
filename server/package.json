@@ -1,0 +1,64 @@
+{
+  "name": "karm",
+  "version": "1.0.0",
+  "description": "An implementation of Flush Org",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carboclan/karm.git"
+  },
+  "keywords": [
+    "ethereum",
+    "hackahton",
+    "DAO"
+  ],
+  "author": "YellowHat DAO",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carboclan/karm/issues"
+  },
+  "homepage": "https://github.com/carboclan/karm#readme",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "body-parser": "^1.18.3",
+    "case-converter": "^1.0.1",
+    "coinbase-commerce-node": "^1.0.0",
+    "cors": "^2.8.4",
+    "cron": "^1.4.1",
+    "errorhandler": "^1.5.0",
+    "express": "^4.16.3",
+    "express-mysql-session": "^1.3.0",
+    "express-session": "^1.15.6",
+    "jade": "^1.11.0",
+    "json-merge-patch": "^0.2.3",
+    "method-override": "^2.3.10",
+    "mongoose": "^5.9.13",
+    "morgan": "^1.9.0",
+    "multer": "^1.3.1",
+    "multer-s3": "^2.7.0",
+    "mysql": "^2.15.0",
+    "mysql2": "^1.6.1",
+    "node-cron": "^2.0.1",
+    "nodemailer": "^4.6.4",
+    "randomstring": "^1.1.5",
+    "serve-favicon": "^2.5.0",
+    "solc": "^0.6.7",
+    "spotify-web-api-node": "^4.0.0",
+    "stripe": "^6.1.0",
+    "swig-email-templates": "^5.0.1",
+    "twilio": "^3.17.0",
+    "typedarray-to-buffer": "^3.1.5",
+    "uuid": "^3.2.1",
+    "web3": "^1.0.0-beta.36"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
