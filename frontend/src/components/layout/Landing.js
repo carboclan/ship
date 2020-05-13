@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+
 class Landing extends Component {
   render() {
     return (
@@ -7,7 +8,7 @@ class Landing extends Component {
         <div className="row">
           <div className="col s12 center-align">
             <h3>
-              <span style={{ fontFamily: "monospace" }}>Get early access</span>
+              <span><b>Get early access</b></span>
             </h3>
             <br />
             <div className="col s6">
@@ -20,7 +21,7 @@ class Landing extends Component {
                 }}
                 className="btn btn-large waves-effect waves-light hoverable blue accent-3"
               >
-                Register
+                Sign up
               </Link>
             </div>
             <div className="col s6">
