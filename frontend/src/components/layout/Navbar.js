@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { SplitColorChannelText } from 'react-text-fun'
 
 class Navbar extends Component {
   render() {
@@ -9,13 +10,9 @@ class Navbar extends Component {
           <div className="nav-wrapper white">
             <Link
               to="/"
-              style={{
-                fontFamily: "monospace"
-              }}
               className="col s5 brand-logo center black-text"
             >
-              <i className="material-icons">attach_money</i>
-              HIP
+              <SplitColorChannelText text="$HIP" />
             </Link>
           </div>
         </nav>
