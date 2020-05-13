@@ -12,7 +12,7 @@ class Navbar extends Component {
               to="/"
               className="col s5 brand-logo center black-text"
             >
-              <SplitColorChannelText text="$HIP" />
+              <SplitColorChannelText text="$HIP" rotation={95} rgbOffset={0.054} fontSize={50} />
             </Link>
           </div>
         </nav>
