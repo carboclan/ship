@@ -1,36 +1,23 @@
 const mongoose = require('mongoose');
+
 const Schema = mongoose.Schema;
-const bcrypt = require('becryptjs');
-
-const userSchema = new Schema({
-    email: String,
-    inviteToken: String,
-    active: Boolean,
-    admin: Boolean,
-    password: String
-}, {
-    timestamps: {
-        createdAt: 'createdAt',
-        updatedAt: 'updatedAt'
-    }
+// Create Schema
+const UserSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  }
 });
-
-const User = mongoose.model('user', userSchema);
-
-module.exports = User;
-module.exports.hashedPassword = async (passowrd) => {
-    try {
-        const salt = await bcrypt.genSalt(10);
-        return await crypto.hash(passowrd, salt);
-    } catch (error) {
-        throw new Error('Failed to hash password :(', error);
-    };   
-}
-module.exports.comparePasswords = async (inputPassword, hashedPassword) => {
-    try {
-        return await bcrypt.compare(inputPassword, hashedPassword);
-    }
-    catch (error) {
-        throw new Error('Passwords dont match :(', error);
-    }; 
-}
+module.exports = User = mongoose.model("users", UserSchema);
