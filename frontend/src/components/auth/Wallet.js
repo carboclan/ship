@@ -3,6 +3,10 @@ import { ethers } from "ethers";
 import BurnerProvider from 'burner-provider';
 import Web3Modal from "web3modal";
 import Portis from '@portis/web3';
+import Fortmatic from "fortmatic";
+import Squarelink from "squarelink";
+import Authereum from "authereum";
+import BurnerConnectProvider from "@burner-wallet/burner-connect-provider";
 import Balance from "../eth/Balance"
 import Address from "../eth/Address"
 import { Button } from 'react-bootstrap';
@@ -11,12 +15,15 @@ import usePoller from "../hooks/Poller"
 
 
 const INFURA_ID = "beb925e5da5847928e43bef7df96bca0" 
+const PORTIS_ID = "350a722b-40fe-46a4-b53f-b18276b2aefc"
+const FORTMATIC_KEY = "pk_test_9AA5A5B094CD1A0A"
+const SQUARELINK_ID = "b09409f678168322422f"
 
 const providerOptions = {
     portis: {
         package: Portis, // required
         options: {
-          id: "350a722b-40fe-46a4-b53f-b18276b2aefc" // required
+          id: PORTIS_ID // required
         }
       },
     walletconnect: {
@@ -24,7 +31,28 @@ const providerOptions = {
         options: {
           infuraId: INFURA_ID
         }
-    }
+    },
+    fortmatic: {
+        package: Fortmatic, // required
+        options: {
+          key: FORTMATIC_KEY // required
+        }
+      },
+      squarelink: {
+        package: Squarelink, // required
+        options: {
+          id: SQUARELINK_ID // required
+        }
+      },
+      authereum: {
+        package: Authereum // required
+      },
+      burnerconnect: {
+        package: BurnerConnectProvider, // required
+        options: {
+          defaultNetwork: "100"
+        }
+      }
   };
   
 const web3Modal = new Web3Modal({
