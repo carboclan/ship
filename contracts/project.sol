@@ -1,4 +1,4 @@
-pragma solidity ^0.4.18;
+pragma solidity ^0.6.4;
 
 contract dummy {
    address public projectLeadAddress;
@@ -6,7 +6,7 @@ contract dummy {
    address[] public memeberAddresses;
 
    modifier onlyPL() {
-        require(msg.sender == projectLeadAddress);
+        require(msg.sender == projectLeadAddress, 'sender is not authorized');
 
         _;
     }
