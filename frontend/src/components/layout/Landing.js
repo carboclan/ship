@@ -30,9 +30,9 @@ class Landing extends Component {
     return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
-          <div className="col s12 left">
+          <div className="col s12">
             <h3>
-              <span><Typist>Create flash orgs ⚡️ </Typist></span>
+              <span><Typist>Build your first flash org ⚡️ </Typist></span>
             </h3>
             <p className="flow-text grey-text text-darken-1">
                 Join the waitlist 👇
