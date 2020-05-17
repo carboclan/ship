@@ -23,7 +23,7 @@ const ProjectSchema = new Schema({
       type: Number,
       required: true
   },
-  owner: {
+  ownerId: {
       type: String,
       required: true
   },
