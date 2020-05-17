@@ -1,4 +1,4 @@
-import { isEmpty as _isEmpty, isEmail, isLength, equals } from 'validator';
+import { isEmpty as _isEmpty} from 'validator';
 import isEmpty from 'is-empty';
 
 export default function validateApplicationInput(data) {
@@ -18,4 +18,19 @@ export default function validateApplicationInput(data) {
       errors,
       isValid: isEmpty(errors)
   };
+};
+
+export default function validateListProjectInput(data) {
+  let errors = {}
+// Convert empty filds to an empty string
+   data.ownerId = !isEmpty(data.ownerId) ? data.ownerId : "";
+
+   //ProjectID checks
+   if (_isEmpty(data.ownerId)) {
+     errors.ownerId = "ProjectId field is required";
+   }
+   return {
+     errors,
+     isValid: isEmpty(errors)
+   };
 };

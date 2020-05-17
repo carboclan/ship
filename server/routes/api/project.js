@@ -2,12 +2,12 @@ import { Router } from "express";
 const router = Router();
 
 //Input validation
-import validateApplicationInput from '../../../server/validation/application'
+import {validateApplicationInput, validateListProjectInput} from '../../validation/project'
 
 // Load Project model
 import Project, { findOne } from '../../models/project';
 // Load Buffer model
-import Buffer, {findOne} from '../../models/buffer';
+import Buffer, { find } from '../../models/buffer';
 
 // @route POST api/projects/create
 // @desc Create project
@@ -47,10 +47,24 @@ router.post("/apply", (req, res) => {
 
 
 // @route POST api/projects/list
-// @desc List project by ownerId
+// @desc List pending project by ownerId
 // @access Public
 router.post("/list", (req, res) => {
-    //TODO
+    // Form validation
+    const {errors, isValid} = validateListProjectInput(req.body);
+    // Cehck validation
+    if (!isValid) {
+        return res.status(400).json(errors);
+    }
+    find({ ownerId: req.body.ownerId }).then(buffer => {
+        // check if ownerId exists
+        if (!buffer) {
+            return res.status(404).json({ projectWithOwnerNotFound: "Current user doesn't have any pending project"})
+        } else {
+            // fetch project and return a list of projects
+            // TODO
+        }
+    })
 })
 
 // @route POST api/projects/accept
