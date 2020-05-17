@@ -27,7 +27,7 @@ const ProjectSchema = new Schema({
       type: String,
       required: true
   },
-  contributer: {
+  contributor: {
       type: Array,
       required: false
   },
