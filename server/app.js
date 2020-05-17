@@ -4,6 +4,7 @@ import { urlencoded, json } from 'body-parser';
 const app = express();
 import passport, { initialize } from 'passport';
 import users from './routes/api/user';
+import projects from './routes/api/project'
 
 // Bodyparser middleware
 app.use(
@@ -32,6 +33,7 @@ require('./config/passport')(passport);
 
 // Routes
 app.use('/api/users', users);
+app.use('/api/projects', projects);
 
 const port = process.env.PORT || 3000; 
 

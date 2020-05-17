@@ -1,15 +1,15 @@
-const express = require("express");
-const router = express.Router();
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const keys = require('../../../server/config/keys');
+import { Router } from "express";
+const router = Router();
+import { genSalt, hash as _hash, compare } from "bcryptjs";
+import { sign } from "jsonwebtoken";
+import { secretOrKey } from '../../../server/config/keys';
 
 // Input validation
-const validateRegisterInput = require('../../../server/validation/register');
-const validateLoginInput = require('../../../server/validation/login');
+import validateRegisterInput from '../../../server/validation/register';
+import validateLoginInput from '../../../server/validation/login';
 
 // Load User model
-const User = require('../../models/user');
+import User, { findOne } from '../../models/user';
 
 // @route POST api/users/register
 // @desc Register user
@@ -21,7 +21,7 @@ router.post("/register", (req, res) => {
     if (!isValid) {
       return res.status(400).json(errors);
     }
-  User.findOne({ email: req.body.email }).then(user => {
+  findOne({ email: req.body.email }).then(user => {
       if (user) {
         return res.status(400).json({ email: "Email already exists" });
       } else {
@@ -31,8 +31,8 @@ router.post("/register", (req, res) => {
           password: req.body.password
         });
   // Hash password before saving in database
-        bcrypt.genSalt(10, (err, salt) => {
-          bcrypt.hash(newUser.password, salt, (err, hash) => {
+        genSalt(10, (err, salt) => {
+          _hash(newUser.password, salt, (err, hash) => {
             if (err) throw err;
             newUser.password = hash;
             newUser
@@ -58,13 +58,13 @@ router.post("/login", (req, res) => {
   const email = req.body.email;
     const password = req.body.password;
   // Find user by email
-    User.findOne({ email }).then(user => {
+    findOne({ email }).then(user => {
       // Check if user exists
       if (!user) {
         return res.status(404).json({ emailnotfound: "Email not found" });
       }
   // Check password
-      bcrypt.compare(password, user.password).then(isMatch => {
+      compare(password, user.password).then(isMatch => {
         if (isMatch) {
           // User matched
           // Create JWT Payload
@@ -73,9 +73,9 @@ router.post("/login", (req, res) => {
             name: user.name
           };
   // Sign token
-          jwt.sign(
+          sign(
             payload,
-            keys.secretOrKey,
+            secretOrKey,
             {
               expiresIn: 31556926 // 1 year in seconds
             },
@@ -95,4 +95,4 @@ router.post("/login", (req, res) => {
     });
   });
 
-  module.exports = router;
+  export default router;
