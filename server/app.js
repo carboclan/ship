@@ -19,12 +19,13 @@ app.use(bodyParser.json());
 
 // DB Config
 var db;
-if (local) {
+/*if (local) {
   console.log("local mongoDB")
-  db = require('./config/keys').mongoURILocal;
+  db = require('../server/config/keys').mongoURILocal;
 } else {
-  db = require('./config/keys').mongoURI;
-}
+  db = require('../server/config/keys').mongoURI;
+}*/
+db = require('../server/config/keys').mongoURI;
 
 // Connecting to MongoDB
 mongoose
