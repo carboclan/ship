@@ -21,16 +21,41 @@ exports.validateListProjectInput = (data) => {
 };
 
 exports.validateListProjectInput = (data) => {
-  let errors = {}
-// Convert empty filds to an empty string
-   data.ownerId = !isEmpty(data.ownerId) ? data.ownerId : "";
+  let errors = {};
+  // Convert empty fidlds to an empty string
+  data.ownerId = !isEmpty(data.ownerId) ? data.ownerId : "";
 
-   //ProjectID checks
-   if (Validator.isEmpty(data.ownerId)) {
-     errors.ownerId = "ProjectId field is required";
-   }
-   return {
-     errors,
-     isValid: isEmpty(errors)
-   };
+  //OwnerId checks
+  if (Validator.isEmpty(data.ownerId)) {
+    errors.ownerId = "OwnerId field is required";
+  }
+  return {
+    errors,
+    isValid: isEmpty(errors)
+  };
 };
+
+exports.validateAcceptInput = (data) => {
+  let errors = {};
+  // Convert empty fields to an empty string
+  data.ownerId = !isEmpty(data.ownerId) ? data.ownerId : "";
+  data.projectId = !isEmpty(data.projectId) ? data.projectId : "";
+  data.applicantId = !isEmpty(data.applicantId) ? data.applicantId : "";
+
+  //OwnerId checks
+  if (Validator.isEmpty(data.ownerId)) {
+    errors.ownerId = "OwnerId field is required";
+  }
+  //ProjectID checks
+  if (Validator.isEmpty(data.projectId)) {
+    errors.projectId = "ProjectId field is required";
+  }
+  //ApplicantId checks
+  if (Validator.isEmpty(data.applicantId)) {
+    errors.applicantId = "ApplicantId field is required";
+  }
+  return {
+    errors,
+    isValid: isEmpty(errors)
+  }; 
+}

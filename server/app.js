@@ -7,7 +7,7 @@ const passport = require('passport');
 const users = require('./routes/api/user');
 const projects = require('./routes/api/project')
 
-const local = false;
+const local = true;
 
 // Bodyparser middleware
 app.use(
