@@ -1,6 +1,6 @@
-import { Schema as _Schema, model } from 'mongoose';
+const mongoose = require('mongoose');
 
-const Schema = _Schema;
+const Schema = mongoose.Schema;
 // Create Project Schema
 const ProjectSchema = new Schema({
   name: {
@@ -36,4 +36,4 @@ const ProjectSchema = new Schema({
     default: Date.now
   }
 });
-export default Project = model("projects", ProjectSchema);
+module.exports = Project = mongoose.model("projects", ProjectSchema);

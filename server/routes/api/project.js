@@ -1,13 +1,13 @@
-import { Router } from "express";
-const router = Router();
+const express = require("express");
+const router = express.Router();
 
 //Input validation
-import {validateApplicationInput, validateListProjectInput} from '../../validation/project'
+const validate = require('../../../server/validation/project')
 
 // Load Project model
-import Project, { findOne } from '../../models/project';
+const Project = require('../../models/project');
 // Load Buffer model
-import Buffer, { find } from '../../models/buffer';
+const Cache = require('../../models/cache');
 
 // @route POST api/projects/create
 // @desc Create project
@@ -21,12 +21,12 @@ router.post("/create", (req, res) => {
 // @access Public
 router.post("/apply", (req, res) => {
     // Form validation
-    const {errors, isValid} = validateApplicationInput(req.body);
+    const {errors, isValid} = validate.validateListProjectInput(req.body);
     // Check validation
     if (!isValid) {
         return res.status(400).json(errors);
     }
-    findOne({ projectId: req.body.projectId }).then(project => {
+    Project.findOne({ projectId: req.body.projectId }).then(project => {
         // Check if project exists
         if (!project) {
             return res.status(404).json({ projectNotFound: "Project not found!" })
@@ -51,14 +51,14 @@ router.post("/apply", (req, res) => {
 // @access Public
 router.post("/list", (req, res) => {
     // Form validation
-    const {errors, isValid} = validateListProjectInput(req.body);
+    const {errors, isValid} = validate.validateListProjectInput(req.body);
     // Cehck validation
     if (!isValid) {
         return res.status(400).json(errors);
     }
-    find({ ownerId: req.body.ownerId }).then(buffer => {
+    Cache.find({ ownerId: req.body.ownerId }).then(cache => {
         // check if ownerId exists
-        if (!buffer) {
+        if (!cache) {
             return res.status(404).json({ projectWithOwnerNotFound: "Current user doesn't have any pending project"})
         } else {
             // fetch project and return a list of projects
@@ -75,4 +75,4 @@ router.post("/accept", (req, res) => {
 })
 
 
-export default router;
+module.exports = router;
