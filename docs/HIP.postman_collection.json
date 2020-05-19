@@ -1,0 +1,275 @@
+{
+	"info": {
+		"_postman_id": "0e6883d6-1bb6-4ec3-9dfe-53018655fc74",
+		"name": "HIP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreateProject",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"test\",\n\t\"productVersion\": \"productVersion\",\n    \"specification\": \"specification\",\n    \"outcomeObjectives\": \"outcomeObjectives\",\n    \"minNumContributor\": 3,\n    \"ownerId\": \"5ec36bbc323a316b7756a1da\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server}}/api/projects/create",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"projects",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CreateProject",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"test\",\n\t\"productVersion\": \"productVersion\",\n    \"specification\": \"specification\",\n    \"outcomeObjectives\": \"outcomeObjectives\",\n    \"minNumContributor\": 3,\n    \"ownerId\": \"5ec36bbc323a316b7756a1da\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/api/projects/create",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"projects",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "273"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"111-dh3FuiMT2e2cFHNan9QHU/Amj6A\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 May 2020 05:19:52 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"5ec36c781197d27257429d69\",\n    \"name\": \"test\",\n    \"productVersion\": \"productVersion\",\n    \"specification\": \"specification\",\n    \"outcomeObjectives\": \"outcomeObjectives\",\n    \"minNumContributor\": 3,\n    \"ownerId\": \"5ec36bbc323a316b7756a1da\",\n    \"contributors\": [],\n    \"date\": \"2020-05-19T05:19:52.558Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "ApplyProject",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"5ec36d991197d27257429d6a\",\n    \"projectId\": \"5ec36c781197d27257429d69\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server}}/api/projects/apply",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"projects",
+						"apply"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ApplyProject",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"5ec36d991197d27257429d6a\",\n    \"projectId\": \"5ec36c781197d27257429d69\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/api/projects/apply",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"projects",
+								"apply"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "195"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c3-2HC4p9Veg7Wy0OZL02p+7Dsp8iE\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 May 2020 05:46:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"5ec372c4b290d28ac8f81fa5\",\n    \"projectId\": \"5ec36c781197d27257429d69\",\n    \"ownerId\": \"5ec36bbc323a316b7756a1da\",\n    \"contributorId\": \"5ec36d991197d27257429d6a\",\n    \"date\": \"2020-05-19T05:46:44.355Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "AcceptProject",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"projectId\": \"5ec36c781197d27257429d69\",\n    \"ownerId\": \"5ec36bbc323a316b7756a1da\",\n    \"contributorId\": \"5ec36d991197d27257429d6a\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server}}/api/projects/accept",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"projects",
+						"accept"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListByOwner",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ownerId\": \"5ec36bbc323a316b7756a1da\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server}}/api/projects/listByOwner",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"projects",
+						"listByOwner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AcceptById",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cacheId\": \"5ec37666a143359b1c2d2f2f\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server}}/api/projects/acceptById",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"projects",
+						"acceptById"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const userModule = require('../models/user');
+const UserSchema = userModule.UserSchema;
 
 const Schema = mongoose.Schema;
 // Create Project Schema
@@ -27,8 +29,8 @@ const ProjectSchema = new Schema({
       type: String,
       required: true
   },
-  contributor: {
-      type: Array,
+  contributors: {
+      type: [UserSchema],
       required: false
   },
   date: {
