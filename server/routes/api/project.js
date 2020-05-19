@@ -8,12 +8,29 @@ const validate = require('../../../server/validation/project');
 const Project = require('../../models/project');
 // Load Buffer model
 const Cache = require('../../models/cache');
+// Load User modle
+const userModule = require('../../models/user');
 
 // @route POST api/projects/create
 // @desc Create project
 // @access Public
 router.post("/create", (req, res) => {
-    //TODO
+    // Form validation
+    const {errors, isValid} = validate.validateCreateProjectInput(req.body);
+    // Check validation
+    if (!isValid) {
+        return res.status(400).json(errors);
+    }
+    const newProject = new Project({
+        name: req.body.name,
+        productVersion: req.body.productVersion,
+        specification: req.body.specification,
+        outcomeObjectives: req.body.outcomeObjectives,
+        minNumContributor: req.body.minNumContributor,
+        ownerId: req.body.ownerId
+    })
+    // Save
+    newProject.save().then(project => res.json(project)).catch(err => console.log(err));
 });
 
 // @route POST api/projects/apply
@@ -21,7 +38,7 @@ router.post("/create", (req, res) => {
 // @access Public
 router.post("/apply", (req, res) => {
     // Form validation
-    const {errors, isValid} = validate.validateListProjectInput(req.body);
+    const {errors, isValid} = validate.validateApplyProjectInput(req.body);
     // Check validation
     if (!isValid) {
         return res.status(400).json(errors);
@@ -31,25 +48,25 @@ router.post("/apply", (req, res) => {
         if (!project) {
             return res.status(404).json({ projectNotFound: "Project not found!" });
         } else {
-            const newBuffer = new Buffer({
+            const newCache = new Cache({
                 projectId: req.body.projectId,
                 ownerId: project.ownerId,
                 contributorId: req.body.userId
             });
             //save
-            newBuffer
+            newCache
                 .save()
-                .then(buffer => res.json(buffer))
+                .then(cache => res.json(cache))
                 .catch(err => console.log(err));
         }
     });
 });
 
 
-// @route POST api/projects/list
-// @desc List pending project by ownerId
+// @route POST api/projects/listByOwner
+// @desc List pending projects by ownerId
 // @access Public
-router.post("/list", (req, res) => {
+router.post("/listByOwner", (req, res) => {
     // Form validation
     const {errors, isValid} = validate.validateListProjectInput(req.body);
     // Check validation
@@ -61,7 +78,12 @@ router.post("/list", (req, res) => {
         if (!docs) {
             return res.status(404).json({ projectWithOwnerNotFound: "Current user doesn't have any pending project"});
         } else {
-            return res.json(docs.map(doc => Project.findById(doc.projectId)));
+            let promises = docs.map(doc => Project.findById(doc.projectId).then(p => {
+                return p;
+            }));
+            Promise.all(promises).then(function(results) {
+                return res.json(results)
+            });
         }
     });
 });
@@ -77,18 +99,34 @@ router.post("/accept", (req, res) => {
         return res.status(400).json(errors);
     }
     Cache.findOneAndDelete({ownerId: req.body.ownerId, 
-        projectId: req.body.projectId, applicantId: req.body.applicantId}).then(doc => {
+        projectId: req.body.projectId, contributorId: req.body.contributorId}).then(doc => {
             if (!doc) {
                 return res.status(404).json({ projectNotFound: "No such pending project."})
             } else {
-                return res.json(doc);
+                // Modify project doc (add contributor to the contributors)
+                userModule.User.findById(doc.contributorId).then(user => {
+                    if (!user) {
+                        return res.status(404).json({ userNotFound: "No such applicant."});
+                    } else {
+                        Project.update({_id: doc.projectId}, {$push: {contributors: user } }).then(x => {
+                            return res.json({
+                                projectId: doc.projectId,
+                                contributorId: doc.contributorId,
+                                status: "Accepted"
+                            })
+                        });
+                    }
+                });
             }
         });
 });
 
+// @route POST api/projects/acceptById
+// @desc Accept contributor's request by project leader with a specific id.
+// @access Public
 router.post("/acceptById", (req, res) => {
     // Form validation
-    const {erros, isValid} = validate.validateAcceptByIdInput(req.body);
+    const {errors, isValid} = validate.validateAcceptByIdInput(req.body);
     // Check validation
     if (!isValid) {
         return res.status(400).json(errors);
@@ -97,7 +135,19 @@ router.post("/acceptById", (req, res) => {
         if (!doc) {
             return res.status(404).json({ projectNotFound: "No such pending project with given id"});
         } else {
-            return res.json(doc);
+            userModule.User.findById(doc.contributorId).then(user => {
+                if (!user) {
+                    return res.status(404).json({ userNotFound: "No such applicant."});
+                } else {
+                    Project.update({_id: doc.projectId}, {$push: {contributors: user } }).then(x => {
+                        return res.json({
+                            projectId: doc.projectId,
+                            contributorId: doc.contributorId,
+                            status: "Accepted" 
+                        })
+                    });
+                }
+            });
         }
     });
 });

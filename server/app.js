@@ -7,8 +7,6 @@ const passport = require('passport');
 const users = require('./routes/api/user');
 const projects = require('./routes/api/project')
 
-const local = true;
-
 // Bodyparser middleware
 app.use(
   bodyParser.urlencoded({
@@ -18,14 +16,7 @@ app.use(
 app.use(bodyParser.json());
 
 // DB Config
-var db;
-/*if (local) {
-  console.log("local mongoDB")
-  db = require('../server/config/keys').mongoURILocal;
-} else {
-  db = require('../server/config/keys').mongoURI;
-}*/
-db = require('../server/config/keys').mongoURI;
+const db = require('../server/config/keys').mongoURI;
 
 // Connecting to MongoDB
 mongoose

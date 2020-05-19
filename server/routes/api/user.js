@@ -9,7 +9,8 @@ const validateRegisterInput = require('../../../server/validation/register');
 const validateLoginInput = require('../../../server/validation/login');
 
 // Load User model
-const User = require('../../models/user');
+const userModule = require('../../models/user');
+const User = userModule.User
 
 // @route POST api/users/register
 // @desc Register user
@@ -43,6 +44,7 @@ router.post("/register", (req, res) => {
         });
       }
     });
+    console.log("User Registered!")
   });
 
 // @route POST api/users/login
