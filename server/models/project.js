@@ -1,39 +1,46 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
-// Create Project Schema
+
 const ProjectSchema = new Schema({
+  ownerId: {
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
-    required: true
+    required: true,
   },
   productVersion: {
     type: String,
-    required: true
+    required: true,
   },
   specification: {
     type: String,
-    required: true
+    required: true,
   },
-  outcomeObjectives: {
-      type: String,
-      required: true
+  objectives: {
+    type: String,
+    required: true,
   },
-  minNumContributor: {
-      type: Number,
-      required: true
+  strikePrice: {
+    type: Number,
+    min: 0, // Whole Number
+    required: true,
   },
-  ownerId: {
-      type: String,
-      required: true
+  shippingDuration: {
+    type: Number,
+    min: 0, // Whole Number, seconds
+    required: true,
   },
-  contributor: {
-      type: Array,
-      required: false
+  exerciseableDuration: {
+    type: Number, // Whole Number, seconds
+    min: 0,
+    required: true,
   },
-  date: {
+  createdAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 module.exports = Project = mongoose.model("projects", ProjectSchema);

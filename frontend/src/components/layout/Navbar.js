@@ -6,17 +6,25 @@ class Navbar extends Component {
     return (
       <div className="navbar-fixed">
         <nav className="white z-depth-0">
-          <div class="nav-wrapper container">
-            <a href="/" class="brand-logo black-text">$HIP</a>
-            <a href="/" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-              <li><a href="/about" className="black-text">About</a></li>
+          <div className="nav-wrapper container">
+            <a href="/" className="brand-logo black-text">
+              $HIP
+            </a>
+            <a href="/" data-target="mobile-demo" className="sidenav-trigger">
+              <i className="material-icons">menu</i>
+            </a>
+            <ul className="right hide-on-med-and-down">
+              <li>
+                <a href="/about" className="black-text">
+                  About
+                </a>
+              </li>
               <Link
                 to="/login"
                 style={{
                   width: "140px",
                   borderRadius: "3px",
-                  letterSpacing: "1.5px"
+                  letterSpacing: "1.5px",
                 }}
                 className="btn waves-effect waves-light hoverable blue accent-3"
               >
@@ -26,8 +34,10 @@ class Navbar extends Component {
           </div>
         </nav>
 
-        <ul class="sidenav" id="mobile-demo">
-          <li><a href="/about">About</a></li>
+        <ul className="sidenav" id="mobile-demo">
+          <li>
+            <a href="/about">About</a>
+          </li>
         </ul>
       </div>
     );

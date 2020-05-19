@@ -1,6 +1,6 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Typist from 'react-typist';
+import Typist from "react-typist";
 
 // import Wallet from "../auth/Wallet"
 // import { ethers } from "ethers";
@@ -13,7 +13,7 @@ class Landing extends Component {
     super(props);
     this.state = {
       injectedProvider: null,
-      address: null
+      address: null,
     };
   }
   /*
@@ -32,18 +32,28 @@ class Landing extends Component {
         <div className="row">
           <div className="col s12">
             <h3>
-              <span><Typist>Build your first flash org ⚡️ </Typist></span>
+              <span>
+                <Typist>
+                  Build your first flash org{" "}
+                  <span role="img" aria-label="lightning bolt">
+                    ⚡️
+                  </span>
+                </Typist>
+              </span>
             </h3>
             <p className="flow-text grey-text text-darken-1">
-                Join the waitlist 👇
-              </p>
+              Join the waitlist{" "}
+              <span role="img" aria-label="below">
+                👇
+              </span>
+            </p>
             <div className="col s12">
               <Link
                 to="/register"
                 style={{
                   width: "140px",
                   borderRadius: "3px",
-                  letterSpacing: "1.5px"
+                  letterSpacing: "1.5px",
                 }}
                 className="btn btn-large waves-effect waves-light hoverable blue accent-3"
               >

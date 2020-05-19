@@ -1,23 +1,37 @@
-const Validator = require('validator');
-const isEmpty = require('is-empty');
+const Validator = require("validator");
+const Joi = require("@hapi/joi");
+const isEmpty = require("is-empty");
 
-exports.validateListProjectInput = (data) => {
-  let errors = {};
-// Convert empty fields to an empty string so we can use validator functions
-  data.userId = !isEmpty(data.userId) ? data.userId : "";
-  data.projectId = !isEmpty(data.projectId) ? data.projectId : "";
-// UserId checks
-  if (Validator.isEmpty(data.userId)) {
-    errors.name = "UserId field is required";
-  }
-// ProjectId checks
-  if (Validator.isEmpty(data.projectId)) {
-    errors.projectId = "ProjectId field is required";
-  }
-  return {
-      errors,
-      isValid: isEmpty(errors)
-  };
+const mongoObjectIdSchema = Joi.string().alphanum().length(24);
+
+const contributorSlotSchema = Joi.object({
+  requirements: Joi.string().required(),
+  responsibilities: Joi.string().required(),
+  equity: Joi.string().required(),
+});
+
+const createProjectInputSchema = Joi.object({
+  ownerId: mongoObjectIdSchema.required(),
+  name: Joi.string().required(),
+  productVersion: Joi.string().required(),
+  specification: Joi.string().required(),
+  objectives: Joi.string().required(),
+  contributorSlots: Joi.array()
+    .items(contributorSlotSchema.required())
+    .required(),
+  strikePrice: Joi.number().integer().positive().required(),
+  shippingDuration: Joi.number().integer().positive().required(), // seconds
+  exerciseableDuration: Joi.number().integer().positive().required(), // seconds
+});
+
+exports.validateCreateProjectInput = (data) => {
+  const { error } = createProjectInputSchema.validate(data);
+  return error
+    ? { errors: { joi: error }, isValid: false }
+    : {
+        errors: {},
+        isValid: true,
+      };
 };
 
 exports.validateListProjectInput = (data) => {
@@ -31,7 +45,7 @@ exports.validateListProjectInput = (data) => {
   }
   return {
     errors,
-    isValid: isEmpty(errors)
+    isValid: isEmpty(errors),
   };
 };
 
@@ -56,6 +70,6 @@ exports.validateAcceptInput = (data) => {
   }
   return {
     errors,
-    isValid: isEmpty(errors)
-  }; 
-}
+    isValid: isEmpty(errors),
+  };
+};
