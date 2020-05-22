@@ -16,16 +16,27 @@ router.post("/create", (req, res) => {
   // Validation
   const { errors, isValid } = validate.validateCreateProjectInput(req.body);
   if (!isValid) return res.status(400).json(errors);
-
   // Save to DB
   const contributorSlots = req.body.contributorSlots;
   const project = req.body;
   project.contributorSlots = undefined;
-  Project.create(req.body).then((project) => {
-    ContributorSlot.create(
-      ...contributorSlots.map((slot) => (slot.projectId = project.id))
-    );
-  });
+  Project.create(project)
+    .then((project) => {
+      ContributorSlot.create(
+        ...contributorSlots.map((slot) => ({ ...slot, projectId: project.id }))
+      )
+        .then(() => {
+          res.status(200).json(project.id);
+        })
+        .catch((error) => {
+          console.log(error);
+          res.status(500).json("unexpected error");
+        });
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json("unexpected error");
+    });
 });
 
 // @route POST api/projects/apply

@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import web3 from "web3";
 import { createProject } from "../../actions/projectActions";
 import classnames from "classnames";
+import ContributorSlot from "../contributor-slot";
 
 class CreateProject extends Component {
   constructor() {
@@ -13,14 +15,52 @@ class CreateProject extends Component {
       specification: "",
       objectives: "",
       contributorSlots: [],
-      strikePrice: "",
-      shippingDuration: "",
-      exerciseableDuration: "",
-      errors: {},
+      strikePrice: "0.0",
+      shippingDuration: "30",
+      exerciseableDuration: "30",
     };
   }
+  onChangeCurrency = (e) => {
+    let value = e.target.value;
+    value.replace(/[^0-9.]/, "");
+    const decimals = value.match(/\./g);
+    this.setState({
+      [e.target.id]: decimals && decimals.length > 1 ? "0.0" : value,
+    });
+  };
   onChange = (e) => {
     this.setState({ [e.target.id]: e.target.value });
+  };
+  onChangeContributor = (index, property, value) => {
+    this.setState((prevState) => {
+      const newContribSlots = prevState.contributorSlots;
+      newContribSlots[index][property] = value;
+      return {
+        ...prevState,
+        contributorSlots: newContribSlots,
+      };
+    });
+  };
+  onRemoveContributor = (index) => {
+    this.setState((prevState) => ({
+      ...prevState,
+      contributorSlots: prevState.contributorSlots.filter(
+        (slot, i) => i !== index
+      ),
+    }));
+  };
+  onAddContributor = (e) => {
+    this.setState((prevState) => ({
+      ...prevState,
+      contributorSlots: [
+        ...prevState.contributorSlots,
+        {
+          requirements: "",
+          responsibilities: "",
+          equity: "0",
+        },
+      ],
+    }));
   };
   onSubmit = (e) => {
     e.preventDefault();
@@ -31,16 +71,31 @@ class CreateProject extends Component {
       specification: this.state.specification,
       objectives: this.state.objectives,
       contributorSlots: this.state.contributorSlots,
-      strikePrice: this.state.strikePrice,
-      shippingDuration: this.state.shippingDuration,
-      exerciseableDuration: this.state.exerciseableDuration,
+      strikePrice: web3.utils.toWei(this.state.strikePrice), // currency
+      shippingDuration: this.state.shippingDuration * 86400, // day to seconds
+      exerciseableDuration: this.state.exerciseableDuration * 86400, // day to seconds
     };
+    console.log(createProjectDTO);
     this.props.createProject(createProjectDTO);
   };
 
   render() {
+    const errors = {};
+    if (this.props.errors.joi) {
+      if (this.props.errors.joi.details[0].path[0] === "contributorSlots") {
+        errors.contributorSlots = true;
+        errors.contribotorSlotIndex = this.props.errors.joi.details[0].path[1];
+        errors[
+          this.props.errors.joi.details[0].path[2]
+        ] = this.props.errors.joi.details[0].message;
+      } else {
+        errors[
+          this.props.errors.joi.details[0].context.key
+        ] = this.props.errors.joi.details[0].message;
+      }
+      console.log(errors);
+    }
     console.log(this.state);
-    const { errors } = this.state;
     return (
       <div className="container" style={{ height: "40vh" }}>
         <div style={{ marginTop: "4rem" }} className="row">
@@ -55,123 +110,148 @@ class CreateProject extends Component {
                 <input
                   onChange={this.onChange}
                   value={this.state.name}
-                  error={errors.joi}
                   id="name"
                   type="text"
                   className={classnames("", {
-                    invalid: errors.joi || errors.joi,
+                    invalid: errors.name,
                   })}
                 />
                 <label htmlFor="name">Name</label>
-                <span className="red-text">
-                  {errors.joi}
-                  {errors.joi}
-                </span>
+                <span className="red-text">{errors.name}</span>
               </div>
               <div className="input-field col s12">
                 <input
                   onChange={this.onChange}
                   value={this.state.productVersion}
-                  error={errors.joi}
                   id="productVersion"
                   type="text"
                   className={classnames("", {
-                    invalid: errors.joi || errors.joi,
+                    invalid: errors.productVersion,
                   })}
                 />
                 <label htmlFor="productVersion">Product Version</label>
-                <span className="red-text">
-                  {errors.joi}
-                  {errors.joi}
-                </span>
+                <span className="red-text">{errors.productVersion}</span>
               </div>
               <div className="input-field col s12">
-                <input
+                <textarea
                   onChange={this.onChange}
                   value={this.state.specification}
-                  error={errors.joi}
                   id="specification"
-                  type="text"
-                  className={classnames("", {
-                    invalid: errors.joi || errors.joi,
+                  className={classnames("materialize-textarea", {
+                    invalid: errors.specification,
                   })}
                 />
                 <label htmlFor="specification">Specification</label>
-                <span className="red-text">
-                  {errors.joi}
-                  {errors.joi}
-                </span>
+                <span className="red-text">{errors.specification}</span>
               </div>
               <div className="input-field col s12">
-                <input
+                <textarea
                   onChange={this.onChange}
                   value={this.state.objectives}
-                  error={errors.joi}
                   id="objectives"
                   type="text"
-                  className={classnames("", {
-                    invalid: errors.joi || errors.joi,
+                  className={classnames("materialize-textarea", {
+                    invalid: errors.objectives,
                   })}
                 />
                 <label htmlFor="objectives">Objectives</label>
-                <span className="red-text">
-                  {errors.joi}
-                  {errors.joi}
-                </span>
+                <span className="red-text">{errors.objectives}</span>
               </div>
-              {/* COntributor SLots Here */}
               <div className="input-field col s12">
                 <input
-                  onChange={this.onChange}
+                  onChange={this.onChangeCurrency}
                   value={this.state.strikePrice}
-                  error={errors.joi}
                   id="strikePrice"
                   type="text"
                   className={classnames("", {
-                    invalid: errors.joi || errors.joi,
+                    invalid: errors.strikePrice,
                   })}
                 />
-                <label htmlFor="strikePrice">Strike Price</label>
-                <span className="red-text">
-                  {errors.joi}
-                  {errors.joi}
-                </span>
+                <label htmlFor="strikePrice">Strike Price (Dai) </label>
+                <span className="red-text">{errors.strikePrice}</span>
               </div>
               <div className="input-field col s12">
                 <input
                   onChange={this.onChange}
                   value={this.state.shippingDuration}
-                  error={errors.joi}
                   id="shippingDuration"
-                  type="text"
+                  type="number"
+                  step={1}
+                  min={1}
                   className={classnames("", {
-                    invalid: errors.joi || errors.joi,
+                    invalid: errors.shippingDuration,
                   })}
                 />
-                <label htmlFor="shippingDuration">Project Duration</label>
-                <span className="red-text">
-                  {errors.joi}
-                  {errors.joi}
-                </span>
+                <label htmlFor="shippingDuration">
+                  Project Duration (days)
+                </label>
+                <span className="red-text">{errors.shippingDuration}</span>
               </div>
               <div className="input-field col s12">
                 <input
                   onChange={this.onChange}
                   value={this.state.exerciseableDuration}
-                  error={errors.joi}
                   id="exerciseableDuration"
-                  type="text"
+                  type="number"
+                  step={1}
+                  min={1}
                   className={classnames("", {
-                    invalid: errors.joi || errors.joi,
+                    invalid: errors.exerciseableDuration,
                   })}
                 />
                 <label htmlFor="exerciseableDuration">
-                  Exerciseable Duration
+                  Exerciseable Duration (days)
                 </label>
-                <span className="red-text">
-                  {errors.joi}
-                  {errors.joi}
-                </span>
+                <span className="red-text">{errors.exerciseableDuration}</span>
+              </div>
+              <h4>Contributors</h4>
+              <span className="red-text">
+                {errors.contributorSlots && !errors.contribotorSlotIndex
+                  ? "Must Contain at least one Contributor Slots"
+                  : ""}
+              </span>
+              <div>
+                {this.state.contributorSlots.map((contributor, index) => (
+                  <div key={index}>
+                    <strong>Contributor #{index + 1}</strong>
+                    <br />
+                    <button
+                      style={{
+                        width: "100px",
+                        borderRadius: "3px",
+                        letterSpacing: "1.5px",
+                        marginTop: "1rem",
+                      }}
+                      type="button"
+                      className="btn btn-small waves-effect waves-light hoverable blue accent-3"
+                      onClick={() => this.onRemoveContributor(index)}
+                    >
+                      Remove
+                    </button>
+                    <ContributorSlot
+                      errors={errors.index === index ? errors : {}}
+                      contributor={contributor}
+                      onChange={(property, value) =>
+                        this.onChangeContributor(index, property, value)
+                      }
+                    />
+                  </div>
+                ))}
+                <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+                  <button
+                    style={{
+                      width: "100px",
+                      borderRadius: "3px",
+                      letterSpacing: "1.5px",
+                      marginTop: "1rem",
+                    }}
+                    type="button"
+                    className="btn btn-small waves-effect waves-light hoverable blue accent-3"
+                    onClick={this.onAddContributor}
+                  >
+                    Add
+                  </button>
+                </div>
               </div>
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                 <button

@@ -19,7 +19,7 @@ const createProjectInputSchema = Joi.object({
   contributorSlots: Joi.array()
     .items(contributorSlotSchema.required())
     .required(),
-  strikePrice: Joi.number().integer().positive().required(),
+  strikePrice: Joi.string().required(), // number() doesn't play nice with 10^18 decimals
   shippingDuration: Joi.number().integer().positive().required(), // seconds
   exerciseableDuration: Joi.number().integer().positive().required(), // seconds
 });

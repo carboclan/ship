@@ -23,7 +23,7 @@ class Dashboard extends Component {
                 Create your first <b>flash org</b> ⚡️
               </p>
             </h4>
-            <CreateProject></CreateProject>
+            <CreateProject />
             <br />
             <button
               style={{

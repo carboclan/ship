@@ -19,6 +19,7 @@
     "fortmatic": "^2.0.6",
     "is-empty": "^1.2.0",
     "jwt-decode": "^2.2.0",
+    "materialize-css": "^1.0.0-rc.2",
     "react": "^16.13.1",
     "react-blockies": "^1.4.1",
     "react-bootstrap": "^1.0.1",
