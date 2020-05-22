@@ -4,7 +4,7 @@ import './opyn/oToken.sol';
 import './opyn/OptionsFactory.sol';
 import './opyn/OptionsContract.sol';
 
-contract TestOpyn {
+contract Opyn {
 
     // Specify the amount of ETH collateral you want to put down in wei
     uint256 constant collateral = 1000000000000000000;
