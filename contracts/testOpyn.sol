@@ -1,6 +1,7 @@
 pragma solidity >=0.4.22 <0.7.0;
 
 import './opyn/oToken.sol';
+import './opyn/OptionsFactory.sol';
 
 contract TestOpyn {
 
@@ -10,7 +11,20 @@ contract TestOpyn {
     uint256 constant collateralizationRatio = 200;
 
     function test() public payable {
-        oToken ocDai = oToken(0x57cC8708eFEB7f7D42E4d73ab9120BC275f1DB59);
+        OptionsFactory factory = OptionsFactory(0xd9ea7193B33297E9cb86389cD0ec078fd5777aF1); //Kovan
+        address optionContract = factory.createOptionsContract(
+                                "ETH",
+                                -10,
+                                "DAI",
+                                -18,
+                                -18,
+                                1,
+                                -10, 
+                                "ETH",  
+                                1574457816,
+                                1574457800 
+                                );
+        oToken ocDai = oToken(optionContract);
     
         // This function tells you the maximum number of options you can safely issue at the minimum collateralization ratio (currently 160%)/ 
         // Note: It is reccomended that you create less than this amount of options. 
