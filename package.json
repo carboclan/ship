@@ -1,0 +1,28 @@
+{
+  "name": "hip",
+  "version": "1.0.0",
+  "description": "A platform for bootstrapping MVPs for side-projects with fair and sustainable incentive alignment. Project owners can summon flash organizations where members work towards pre-defined product milestones. Contributors who apply to a project / projects can receive puttable equity tokens for their work upon achieving the pre-defined product milestones, with an option of “exit to cash” that settles to pre-arranged strike price, exercisable within a limited timeframe.",
+  "main": "truffle-config.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carboclan/hip.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carboclan/hip/issues"
+  },
+  "homepage": "https://github.com/carboclan/hip#readme",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^1.0.35",
+    "truffle-hdwallet-provider": "^1.0.17"
+  }
+}
