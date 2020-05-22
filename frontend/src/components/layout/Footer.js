@@ -1,26 +1,48 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { FaTwitter, FaGithub } from "react-icons/fa";
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import { Link } from '@aragon/ui';
 
-class Footer extends Component {
-    render() {
-        return (
-            <div class="page-footer white">
-                <footer>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col l6 s12">
-                                <h5 class="black-text">Follow us</h5>
-                                <li class="btn-floating waves-effect waves-light hoverable black accent-3" style={{ margin: "5px" }}> <i class="material-icons">code</i>
-                                </li>
-                                <li class="btn-floating waves-effect waves-light hoverable blue accent-3" style={{ margin: "5px" }}> <i class="material-icons">forum</i>
-                                </li>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        );
-    }
+function Footer({ theme }) {
+  const history = useHistory();
+
+  return (
+    history.location.pathname.includes('/create/')
+      ? <></>
+      : (
+        <div style={{
+          backgroundColor: theme === 'light' ? '#F8F8F8' : '#35425e',
+          textAlign: 'center',
+          padding: '12px',
+          position: 'fixed',
+          left: '0',
+          bottom: '0',
+          height: '40px',
+          width: '100%',
+          fontSize: '14px'
+        }}>
+          Powered By
+          {' '}
+          <Link external href="https://opyn.co/#/">
+            Opyn
+          </Link>
+          {', '}
+          <Link external href="https://ui.aragon.org/">
+            Aragon UI
+          </Link>
+          {', '}
+          <Link external href="https://compound.finance">
+            Compound
+          </Link>
+          {'. '}
+          Hosted on
+          {' '}
+          {' '}
+          <Link external href="https://github.com/carboclan/hip">
+            GitHub
+          </Link>
+        </div>
+      )
+  );
 }
+
 export default Footer;

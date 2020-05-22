@@ -9,7 +9,9 @@ import Authereum from "authereum";
 import BurnerConnectProvider from "@burner-wallet/burner-connect-provider";
 import Balance from "../eth/Balance"
 import Address from "../eth/Address"
-import { Button } from 'react-bootstrap';
+import {
+  Button, IconConnect, Box, IconPower, LinkBase,
+} from '@aragon/ui';
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import usePoller from "../hooks/Poller"
 
@@ -103,14 +105,14 @@ export default function Wallet(props) {
       let modalButtons = []
       if (web3Modal.cachedProvider) {
         modalButtons.push(
-            <Button variant="primary" size="lg" onClick={logoutOfWeb3Modal}>
-            Disconnect Wallet
+            <Button onClick={logoutOfWeb3Modal}>
+            Disconnect 
           </Button>
         )
       }else{
         modalButtons.push(
-            <Button variant="primary" size="lg" onClick={loadWeb3Modal}>
-            Connect to Wallet
+            <Button onClick={loadWeb3Modal}>
+            Connect 
           </Button>
         )
       }
