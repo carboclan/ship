@@ -1,85 +1,60 @@
-
-import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { Main, textStyle} from '@aragon/ui';
-import { Link } from "react-router-dom";
-
-import {
-  Bar, LinkBase,
-} from '@aragon/ui';
-
-import ChangeModeButton from "./SwitchTheme";
-
-// Wallet imports
+import React from 'react'
 import Wallet from "../auth/Wallet"
- import { ethers } from "ethers";
+import { ethers } from "ethers";
+import styled from 'styled-components'
 
- //const mainnetProvider = new ethers.providers.InfuraProvider("mainnet","beb925e5da5847928e43bef7df96bca0")
- //const localProvider = new ethers.providers.InfuraProvider("rinkeby","beb925e5da5847928e43bef7df96bca0")
- /*
-           <Wallet
-              address={address}
-              setAddress={(v) => setAddress(v)}
-              localProvider={localProvider}
-              injectedProvider= {injectedProvider}
-              setInjectedProvider={(v) => setInjectedProvider(v)}
-              mainnetProvider={mainnetProvider}
-            />*/
+const mainnetProvider = new ethers.providers.InfuraProvider("mainnet", "beb925e5da5847928e43bef7df96bca0")
+const localProvider = new ethers.providers.InfuraProvider("rinkeby", "beb925e5da5847928e43bef7df96bca0")
 
-const NavbarProps = {
-  theme: {},
-  updateTheme: {}
+class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      injectedProvider: null,
+      address: null
+    };
+  }
+
+  render() {
+    return (
+      <AragonNavbar>
+        <LogoLink to="/">
+          <a href='/'>$HIP</a>
+        </LogoLink>
+        <Wallet
+          address={this.state.address}
+          setAddress={(v) => this.setState({ address: v })}
+          localProvider={localProvider}
+          injectedProvider={this.state.injectedProvider}
+          setInjectedProvider={(v) => this.setState({ injectedProvider: v })}
+          mainnetProvider={mainnetProvider}
+        />
+      </AragonNavbar>
+    )
+  }
 }
 
-function NavBar({
-  theme, updateTheme, user, setUser,
-} = NavbarProps) {
+const AragonNavbar = styled.div`
+  width: 80%;
+  height: 80px;
+  background: transparent;
+  position:absolute;
+  top:0;
+  left: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 3000;
+`
 
-  const history = useHistory();
-  const [isHome, updateIsHome] = useState(true);
-
-  const [injectedProvider, setInjectedProvider] = useState(true);
-  const [address, setAddress] = useState(true)
-
-  useEffect(() => {
-    const home = history.location.pathname === '/';
-    updateIsHome(home);
-  }, [history.location.pathname]);
-
-  return (
-    <Bar
-      primary={
-        (
-          <>
-            <Link to="/">
-            $HIP</Link>
-          </>
-        )
-      }
-      secondary={(
-        <>
-          <ChangeModeButton theme={theme} updateTheme={updateTheme} />
-        </>
-      )}
-    />
-  );
-}
-
-
-const linkButtonProps = {
-  title: String,
-  onClick: Function,
-  isSelected: Boolean
-}
-
-function LinkButton({ title, onClick, isSelected = false } = linkButtonProps) {
-  return (
-    <div style={{ paddingLeft: 40 }}>
-      <LinkBase onClick={onClick}>
-        <div style={{ padding: '1%', opacity: isSelected ? 1 : 0.5, fontSize: 16 }}>{title}</div>
-      </LinkBase>
-    </div>
-  );
-}
-
-export default NavBar;
+const LogoLink = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 100%;
+  img {
+    height: 50px;
+  }
+`
+export default Navbar

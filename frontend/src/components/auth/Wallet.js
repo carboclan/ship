@@ -10,7 +10,7 @@ import BurnerConnectProvider from "@burner-wallet/burner-connect-provider";
 import Balance from "../eth/Balance"
 import Address from "../eth/Address"
 import {
-  Button, IconConnect, Box, IconPower, LinkBase,
+ Button,  IconConnect, Box, IconPower, LinkBase,
 } from '@aragon/ui';
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import usePoller from "../hooks/Poller"
@@ -105,13 +105,13 @@ export default function Wallet(props) {
       let modalButtons = []
       if (web3Modal.cachedProvider) {
         modalButtons.push(
-            <Button onClick={logoutOfWeb3Modal}>
+            <Button className="btn btn-sm waves-effect waves-light hoverable accent-3"  onClick={logoutOfWeb3Modal}>
             Disconnect 
           </Button>
         )
       }else{
         modalButtons.push(
-            <Button onClick={loadWeb3Modal}>
+            <Button className="btn btn-sm waves-effect waves-light hoverable accent-3" onClick={loadWeb3Modal}>
             Connect 
           </Button>
         )
