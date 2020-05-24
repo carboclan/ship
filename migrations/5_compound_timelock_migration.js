@@ -1,5 +1,5 @@
-var Comp = artifacts.require("Comp");
-var GovernorAlpha = artifacts.require("GovernorAlpha");
+var TimeLock = artifacts.require("Timelock");
+// var GovernorAlpha = artifacts.require("GovernorAlpha");
 // var Oracle = artifacts.require("Oracle");
 async function doDeploy(deployer, network, accounts) {
     // let OptionsExchangeAddress = await OptionExchange.at("0x133aA105044c00912F5dCF0Ab69501F02073cb25");
@@ -10,9 +10,9 @@ async function doDeploy(deployer, network, accounts) {
     // console.log(OptionsExchange.address)
 
     // Kovan account
-    await deployer.deploy(Comp, '0x5224abe5757eCe7c9BE1bc72102Ed1E7F02D8003');
+    // await deployer.deploy(Comp, '0x5224abe5757eCe7c9BE1bc72102Ed1E7F02D8003');
     // Guardian address is my address for now on Kovan
-    await deployer.deploy(GovernorAlpha, '0x5fE368A673309534b7801b404a2A4e0dD488c67A', Comp.address, '0x5224abe5757eCe7c9BE1bc72102Ed1E7F02D8003')
+    await deployer.deploy(TimeLock, '0x5224abe5757eCe7c9BE1bc72102Ed1E7F02D8003', 2)
 }
 // module.exports = function(deployer, network, accounts) {
 //     //deployer.deploy(StringComparator,{from: accounts[0]});
