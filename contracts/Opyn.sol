@@ -23,14 +23,11 @@ contract Opyn {
         ocDai.createETHCollateralOption.value(collateral)(numOptions, address(this));
     }
     
-    function createOptionsContract() public returns (address) {
-        //Kovan Testnet
-        // OptionsFactory factory = OptionsFactory(0xd9ea7193B33297E9cb86389cD0ec078fd5777aF1);
-        OptionsFactory factory = OptionsFactory(0x567F7bC8b3Ef948c72dd9b7024273e6Cbd34F086); // with Compound Oracle on Kovan
+    function createOptionsContract(address _optionsFactory, string memory asset, address assetAddress) public returns (address) {
+        OptionsFactory factory = OptionsFactory(_optionsFactory);
 
-        //First add Assets to supportAsset list
-        //KOVAN versino
-        factory.addAsset('cDAI', 0xe7bc397DBd069fC7d0109C0636d06888bb50668c);
+        //First add asset to supportAsset list
+        factory.addAsset(asset, assetAddress);
 
         //Optimization: Make the variables below configurable through Web3.
         address optionContract = factory.createOptionsContract(
