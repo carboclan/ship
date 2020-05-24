@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import styled from 'styled-components';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import CreateProject from "../create-project";
 
 // Options details
 import ocDAI from '../../ocDAI';
@@ -132,6 +134,9 @@ return (
             >
               Issue 
             </button>
+          </div>
+          <div className="col s12 center-align">
+            <CreateProject />
           </div>
         </div>
       </div>

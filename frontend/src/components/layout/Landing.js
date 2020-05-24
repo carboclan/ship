@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
-import background from '../assets/ba.jpg';
 import {
   Header, Main, textStyle
 } from '@aragon/ui';
@@ -16,7 +15,7 @@ class Landing extends Component {
               <div className="col s12">
                 <h1 className="flow-text text-darken-1">
                   Create your {" "} first {" "}
-                  <b>flash org</b> with $HIP ⚡️
+                  <b>flash org</b> with <span className="hip">$HIP</span> ⚡️
           </h1>
                 <br />
                 <div className="col s12">
@@ -44,8 +43,6 @@ class Landing extends Component {
 const LandingSection = styled.section`
   min-height: 600px;
   height: 80vh;
-  background: url(${background}) bottom no-repeat;
-  background-size: cover;
 `;
 
 const Container = styled.div`
@@ -89,6 +86,13 @@ const Container = styled.div`
       pointer-events: none;
       animation-name: text-revealer;
     }
+  }
+  span.hip {
+    background: #2196f3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f44336, #2196f3);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f44336, #2196f3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   .second-title {
     position: relative;

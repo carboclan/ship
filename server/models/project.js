@@ -5,6 +5,10 @@ const UserSchema = userModule.UserSchema;
 const Schema = mongoose.Schema;
 // Create Project Schema
 const ProjectSchema = new Schema({
+  ownerId: {
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
     required: true
@@ -17,21 +21,24 @@ const ProjectSchema = new Schema({
     type: String,
     required: true
   },
-  outcomeObjectives: {
+  objectives: {
       type: String,
       required: true
   },
-  minNumContributor: {
-      type: Number,
-      required: true
+  strikePrice: {
+    type: Number,
+    min: 0, // Whole Number
+    required: true,
   },
-  ownerId: {
-      type: String,
-      required: true
+  shippingDuration: {
+    type: Number,
+    min: 0, // Whole Number, seconds
+    required: true,
   },
-  contributors: {
-      type: [UserSchema],
-      required: false
+  exerciseableDuration: {
+    type: Number, // Whole Number, seconds
+    min: 0,
+    required: true,
   },
   date: {
     type: Date,
