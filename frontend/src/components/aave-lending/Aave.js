@@ -144,18 +144,15 @@ function Aave() {
     }
 
     return (
-        <div style={{ height: "75vh" }} className="container valign-wrapper">
+        <div style={{paddingRight: "29.250px"}}>
             <div className="row">
-                <div className="col s12 center-align">
+                <div className="col s12">
+                <br/>
                     <p className="flow-text text-darken-1">
                         <b>Earn</b> interest with Aave
         </p>
-                    <div className="col s12 center-align">
-                        <br />
-                        <p className="flow-text text-darken-1">
-                            Start Lending
-    </p>
-    <br />
+                    <div className="col s12">
+                    <br/>
                         <button className="btn waves-effect waves-light hoverable accent-3" onClick={async () => await deposit()}>
                             Deposit </button>
                     </div>

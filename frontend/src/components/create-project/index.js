@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { createProject } from "../../actions/projectActions";
 import classnames from "classnames";
 import ContributorSlot from "../contributor-slot";
-
+import Aave from '../aave-lending/Aave';
 // Options details
 import ocDAI from '../../ocDAI';
 import optionsFactory from '../../optionsFactory';
@@ -267,7 +267,7 @@ class CreateProject extends Component {
                 </label>
                 <span className="red-text">{errors.exerciseableDuration}</span>
               </div>
-              <p className="flow-text text-darken-1">
+              <p className="flow-text text-darken-1" style={{ paddingLeft: "29.250px" }}>
                     <b>Contributors</b>
                   </p>
               <span className="red-text">
@@ -302,7 +302,7 @@ class CreateProject extends Component {
                     />
                   </div>
                 ))}
-                <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+                <div className="col s12" style={{ paddingLeft: "29.250px" }}>
                   <button
                     style={{
                       width: "100px",
@@ -367,6 +367,7 @@ class CreateProject extends Component {
                     Issue
             </button>
                 </div>
+                <Aave/>
               </div>
             </form>
           </div>

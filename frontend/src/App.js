@@ -19,6 +19,7 @@ import About from "./components/about-us/About"
 import CreateProject from "./components/create-project";
 import Aave from './components/aave-lending/Aave';
 import ProjectView from './components/projects-view';
+import Portfolio from './components/portfolio';
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -58,9 +59,8 @@ function App()  {
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/about" component={About} />
             <Route exact path="/create" component={CreateProject} />
-            <Route exact path="/aave" component={Aave} />
+            <Route exact path="/portfolio" component={Portfolio} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>

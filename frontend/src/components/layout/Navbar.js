@@ -3,6 +3,8 @@ import Wallet from "../auth/Wallet"
 import { ethers } from "ethers";
 import styled from 'styled-components'
 import GitHubLogin from 'github-login';
+import logo from '../assets/logo.png';
+import { Link } from "react-router-dom";
 
 const onSuccess = response => console.log(response);
 const onFailure = response => console.error(response);
@@ -23,7 +25,7 @@ class Navbar extends React.Component {
     return (
       <AragonNavbar>
         <LogoLink to="/">
-          <a href='/'>$HIP</a>
+          <Link to="/"><img src={logo} /></Link>
         </LogoLink>
         <Wallet
           className="btn waves-effect waves-light hoverable accent-3"
@@ -39,6 +41,7 @@ class Navbar extends React.Component {
           redirectUri="http://localhost:3001/dashboard"
           onSuccess={onSuccess}
           onFailure={onFailure} />
+          
       </AragonNavbar>
     )
   }

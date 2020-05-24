@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-//import logo from './assets/logo-footer.svg'
-//import signature from './assets/signature.svg'
 
 import {breakpoint, BreakPoint, Button} from '@aragon/ui';
 const medium = css => breakpoint('medium', css);

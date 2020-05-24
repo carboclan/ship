@@ -14,6 +14,7 @@
     "antd": "^4.2.2",
     "authereum": "0.0.4-beta.141",
     "axios": "^0.19.2",
+    "baseui": "^9.78.0",
     "bootstrap": "^4.5.0",
     "burner-provider": "^1.0.15",
     "classnames": "^2.2.6",
@@ -36,6 +37,8 @@
     "redux-thunk": "^2.3.0",
     "squarelink": "^1.1.4",
     "styled-components": "^5.1.0",
+    "styletron-engine-atomic": "^1.4.6",
+    "styletron-react": "^5.2.7",
     "web3": "^1.2.7",
     "web3modal": "^1.6.3"
   },
