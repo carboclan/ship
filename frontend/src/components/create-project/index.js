@@ -160,7 +160,7 @@ class CreateProject extends Component {
     }
     console.log(this.state);
     return (
-      <div className="container" style={{ height: "40vh" }}>
+      <div className="container" style={{ height: "75vh", marginTop: "100px" }}>
         <div style={{ marginTop: "4rem" }} className="row">
           <div className="col s8 offset-s2">
             <div className="col s12" style={{ paddingLeft: "11.250px" }}>

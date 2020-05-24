@@ -136,7 +136,6 @@ return (
             </button>
           </div>
           <div className="col s12 center-align">
-            <CreateProject />
           </div>
         </div>
       </div>

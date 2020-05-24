@@ -16,6 +16,8 @@ import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 import Footer from "./components/layout/Footer";
 import About from "./components/about-us/About"
+import CreateProject from "./components/create-project";
+import Aave from './components/aave-lending/Aave';
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -56,6 +58,8 @@ function App()  {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/about" component={About} />
+            <Route exact path="/create" component={CreateProject} />
+            <Route exact path="/aave" component={Aave} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
