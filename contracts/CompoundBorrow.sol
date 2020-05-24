@@ -51,25 +51,40 @@ interface PriceOracle {
 
 
 contract CompoundBorrow {
+    CEth public cEth;
+    Comptroller public comptroller;
+    PriceOracle public priceOracle;
+    CErc20 public cDai;
+    Erc20 public dai;
+    address public cEtherAddress;
+    address public cDaiAddress;
+
     event Log(string, uint256);
 
-    function borrowErc20 (
-        address payable _cEtherAddress,
+    constructor(
+        address payable _cEtherAddress, 
         address _comptrollerAddress,
         address _priceOracleAddress,
-        address _cDaiAddress
-    ) public payable returns (uint256) {
-        CEth cEth = CEth(_cEtherAddress);
-        Comptroller comptroller = Comptroller(_comptrollerAddress);
-        PriceOracle priceOracle = PriceOracle(_priceOracleAddress);
-        CErc20 cDai = CErc20(_cDaiAddress);
+        address _cDaiAddress, 
+        address _erc20Address 
+        ) public {
+       cEth = CEth(_cEtherAddress);
+       comptroller = Comptroller(_comptrollerAddress);
+       priceOracle = PriceOracle(_priceOracleAddress); 
+       cDai = CErc20(_cDaiAddress); 
+       dai = Erc20(_erc20Address);
 
+       cEtherAddress = _cEtherAddress;
+       cDaiAddress = _cDaiAddress;
+    }
+
+    function borrowErc20 (uint256 amount) public payable returns (bool) {
         // Supply ETH as collateral, get cETH in return
         cEth.mint.value(msg.value)();
 
         // Enter the ETH market so you can borrow another type of asset
         address[] memory cTokens = new address[](1);
-        cTokens[0] = _cEtherAddress;
+        cTokens[0] = cEtherAddress;
         uint256[] memory errors = comptroller.enterMarkets(cTokens);
         if (errors[0] != 0) {
             revert("Comptroller.enterMarkets failed.");
@@ -97,7 +112,7 @@ contract CompoundBorrow {
 
         // Get the DAI price in ETH from the Price Oracle,
         // so we can find out the maximum amount of DAI we can borrow.
-        uint256 daiPriceInWei = priceOracle.getUnderlyingPrice(_cDaiAddress);
+        uint256 daiPriceInWei = priceOracle.getUnderlyingPrice(cDaiAddress);
         uint256 maxBorrowDaiInWei = liquidity / daiPriceInWei;
 
         // Borrowing near the max amount will result
@@ -105,33 +120,30 @@ contract CompoundBorrow {
         emit Log("Maximum DAI Borrow (borrow far less!)", maxBorrowDaiInWei);
 
         // Borrow DAI
-        uint256 numDaiToBorrow = 10;
+        uint256 numDaiToBorrow = amount;
+        uint256 numDaiToBorrowInWei = numDaiToBorrow * 1e18;
 
-        // Borrow DAI, check the DAI balance for this contract's address
-        cDai.borrow(numDaiToBorrow * 1e18);
+        require(numDaiToBorrowInWei < maxBorrowDaiInWei, "borrow exceed max allowed number");
 
-        // Get the borrow balance
+        // Borrow DAI
+        cDai.borrow(numDaiToBorrowInWei);
+        emit Log("Borrow DAI amount", amount);
+
+        return true;
+    }
+
+    function getBorrowBalance() public returns (uint256) {
         uint256 borrows = cDai.borrowBalanceCurrent(address(this));
         emit Log("Current DAI borrow amount", borrows);
 
         return borrows;
     }
 
-    function myErc20RepayBorrow(
-        address _erc20Address,
-        address _cErc20Address,
-        uint256 amount
-    ) public returns (bool) {
-        Erc20 dai = Erc20(_erc20Address);
-        CErc20 cDai = CErc20(_cErc20Address);
-
-        dai.approve(_cErc20Address, amount);
+    function myErc20RepayBorrow(uint256 amount) public returns (bool) {
+        dai.approve(cDaiAddress, amount);
         uint256 error = cDai.repayBorrow(amount);
 
         require(error == 0, "CErc20.repayBorrow Error");
         return true;
     }
-
-    // Need this to receive ETH when `borrowEthExample` executes
-    fallback() external payable {}
 }
