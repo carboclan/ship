@@ -27,11 +27,16 @@ contract Opyn {
         //Kovan Testnet
         // OptionsFactory factory = OptionsFactory(0xd9ea7193B33297E9cb86389cD0ec078fd5777aF1);
         OptionsFactory factory = OptionsFactory(0x567F7bC8b3Ef948c72dd9b7024273e6Cbd34F086); // with Compound Oracle on Kovan
+
+        //First add Assets to supportAsset list
+        //KOVAN versino
+        factory.addAsset('cDAI', 0xe7bc397DBd069fC7d0109C0636d06888bb50668c);
+
         //Optimization: Make the variables below configurable through Web3.
         address optionContract = factory.createOptionsContract(
                                 "ETH",
-                                -10,
-                                "DAI",
+                                -18,
+                                "cDAI",
                                 -18,
                                 -18,
                                 1,
