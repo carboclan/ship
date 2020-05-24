@@ -155,6 +155,7 @@ function Aave() {
                         <p className="flow-text text-darken-1">
                             Start Lending
     </p>
+    <br />
                         <button className="btn waves-effect waves-light hoverable accent-3" onClick={async () => await deposit()}>
                             Deposit </button>
                     </div>

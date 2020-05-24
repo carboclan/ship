@@ -10,7 +10,7 @@ import ocDAI from '../../ocDAI';
 import optionsFactory from '../../optionsFactory';
 import web3 from '../../web3';
 
-import {breakpoint, BreakPoint} from '@aragon/ui';
+import { breakpoint, BreakPoint } from '@aragon/ui';
 const medium = css => breakpoint('medium', css);
 const large = css => breakpoint('large', css);
 
@@ -39,19 +39,19 @@ class CreateProject extends Component {
 
     // Creates an options contract
     await optionsFactory.methods.createOptionsContract("ETH",
-    "1",
-    "USDC", 
-    '1',
-    "1",
-    "1",
-    "1", 
-    "ETH",  
-    '1574457816', '1').send({
-      from: accounts[0]
+      "1",
+      "USDC",
+      '1',
+      "1",
+      "1",
+      "1",
+      "ETH",
+      '1574457816', '1').send({
+        from: accounts[0]
       }, (error, transactionHash) => {
         console.log(transactionHash);
         this.setState({ transactionHash });
-    });
+      });
   }
 
   createERC20Collateral = async (event) => {
@@ -69,20 +69,20 @@ class CreateProject extends Component {
 
     // Assuming you want to be 200% collateralized
     const collateralizationRatio = 200;
-    const numOptions = maxNumOptions * 160 / collateralizationRatio;    
+    const numOptions = maxNumOptions * 160 / collateralizationRatio;
 
     // Creates an options contract
     await ocDAI.methods.createERC20CollateralOption(
-    numOptions,
-    collateral, 
-    '0x99dE7B407C4d26909527001e2556Aa5D159F316d').send({
-      from: accounts[0]
+      numOptions,
+      collateral,
+      '0x99dE7B407C4d26909527001e2556Aa5D159F316d').send({
+        from: accounts[0]
       }, (error, transactionHash) => {
         console.log(transactionHash);
         this.setState({ transactionHash });
-    });
+      });
   }
-  
+
   onChangeCurrency = (e) => {
     let value = e.target.value;
     value.replace(/[^0-9.]/, "");
@@ -164,9 +164,9 @@ class CreateProject extends Component {
         <div style={{ marginTop: "4rem" }} className="row">
           <div className="col s8 offset-s2">
             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-              <h4>
-                <b>Create a Project</b>
-              </h4>
+              <h2>
+                <p className="flow-text text-darken-1"><b>Create a Project</b></p>
+              </h2>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
               <div className="input-field col s12">
@@ -267,7 +267,9 @@ class CreateProject extends Component {
                 </label>
                 <span className="red-text">{errors.exerciseableDuration}</span>
               </div>
-              <h4>Contributors</h4>
+              <p className="flow-text text-darken-1">
+                    <b>Contributors</b>
+                  </p>
               <span className="red-text">
                 {errors.contributorSlots && !errors.contribotorSlotIndex
                   ? "Must Contain at least one Contributor Slots"
@@ -316,7 +318,7 @@ class CreateProject extends Component {
                   </button>
                 </div>
               </div>
-              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+              <div className="col s12" >
                 <button
                   style={{
                     width: "150px",
@@ -329,6 +331,42 @@ class CreateProject extends Component {
                 >
                   Create
                 </button>
+                <div className="col s12" style={{paddingRight: "29.250px"}}>
+                  <br />
+                  <p className="flow-text text-darken-1">
+                    <b>Create an Options Contract</b>
+                  </p>
+                  <button
+                    style={{
+                      width: "150px",
+                      borderRadius: "3px",
+                      letterSpacing: "1.5px",
+                      marginTop: "1rem"
+                    }}
+                    onClick={this.createOptionsContract}
+                    className="btn waves-effect waves-light hoverable blue accent-3"
+                  >
+                    Create
+            </button>
+                </div>
+                <div className="col s12" style={{paddingRight: "29.250px"}}>
+                  <br />
+                  <p className="flow-text text-darken-1">
+                    <b>Add a vault, ERC20 collateral and Issue oTokens</b>
+                  </p>
+                  <button
+                    style={{
+                      width: "150px",
+                      borderRadius: "3px",
+                      letterSpacing: "1.5px",
+                      marginTop: "1rem"
+                    }}
+                    onClick={this.createERC20Collateral}
+                    className="btn waves-effect waves-light hoverable blue accent-3"
+                  >
+                    Issue
+            </button>
+                </div>
               </div>
             </form>
           </div>
