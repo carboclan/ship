@@ -40,6 +40,10 @@ const ProjectSchema = new Schema({
     min: 0,
     required: true,
   },
+  contributors: {
+    type: [UserSchema],
+    required: false,
+  },
   date: {
     type: Date,
     default: Date.now
