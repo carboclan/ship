@@ -54,3 +54,12 @@
    - transaction hash:    0x1b2453eba9e87c15214955ca65bb6928e262a39ccbce00eb93917d352a23dbb0
    - contract address:    0x7913dADb22F4CfAb3dC86D53228a9bF65C5C32e1
    - account:             0x5224abe5757eCe7c9BE1bc72102Ed1E7F02D8003
+
+6_compound_borrow_mirgration.js
+===============================
+
+   Deploying 'CompoundBorrow'
+   --------------------------
+   - transaction hash:    0xa6301c8b826502dca6490b197021ecb996dee2b06cf37d4970164deff95157f9
+   - contract address:    0xc9Dfd4D6a7d00565b4145E50C6ee9038cf738F2a
+   - account:             0x5224abe5757eCe7c9BE1bc72102Ed1E7F02D8003
