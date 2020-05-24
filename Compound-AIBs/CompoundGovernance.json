@@ -1,0 +1,156 @@
+{
+  "contractName": "CompoundGovernance",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.0+commit.26b70077\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/rchuqiao/Documents/renchuqiao/karm/contracts/CompoundGovernance.sol\":\"CompoundGovernance\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/rchuqiao/Documents/renchuqiao/karm/contracts/CompoundGovernance.sol\":{\"keccak256\":\"0x56aa8165520cb2debf70157853d5a3312046e0be89287d86f85559284ff83f4e\",\"urls\":[\"bzz-raw://cd5ef78ab1ea8a335e7af7e38b8b07b02fa6a99919d8281ce4aa178d85f5c8c2\",\"dweb:/ipfs/QmYSzGYk177DLgdjjNVXM6HxK1sak52ccr7YH1QKEwNmsW\"]},\"/Users/rchuqiao/Documents/renchuqiao/karm/contracts/compound/Governance/Comp.sol\":{\"keccak256\":\"0x51a92adcd8b0f4526d000a789ff150187a364f16887e8d5929f302d083e9bfe8\",\"urls\":[\"bzz-raw://af4b16001ee475ea9e41e9a4475934cf1ed23173b889e353853026a819959e58\",\"dweb:/ipfs/QmQZd2THXUmVHfNitjU2zdx7J4SJevgUXMAoT4FJrk4UMH\"]},\"/Users/rchuqiao/Documents/renchuqiao/karm/contracts/compound/Governance/GovernorAlpha.sol\":{\"keccak256\":\"0x7f7bbd3b50a3dfff5985322b95923b3ac8df9bb55db18541430c8099998ffb6c\",\"urls\":[\"bzz-raw://0f5d7aeda7d934331c98de5aa4bf290c699af2c51c5ee459d6d09cc5c396c725\",\"dweb:/ipfs/QmYsZhXUAGZh3sdURy54ePEMqJKJ9jCvZvEUTALAwW2PJG\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212205fe36e3d2f4fb95079a0091dff08886e02ad90ce1ffe7cba0543e38df9e9ea2464736f6c63430006000033",
+  "deployedBytecode": "0x6080604052600080fdfea26469706673582212205fe36e3d2f4fb95079a0091dff08886e02ad90ce1ffe7cba0543e38df9e9ea2464736f6c63430006000033",
+  "sourceMap": "157:36:1:-:0;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;157:36:1;;;;;;;",
+  "deployedSourceMap": "157:36:1:-:0;;;;;",
+  "source": "pragma solidity >=0.4.22 <0.7.0;\n\nimport './compound/Governance/Comp.sol';\nimport './compound/Governance/GovernorAlpha.sol';\n\n//Compound Governance Contract\ncontract CompoundGovernance {\n    \n}",
+  "sourcePath": "/Users/rchuqiao/Documents/renchuqiao/karm/contracts/CompoundGovernance.sol",
+  "ast": {
+    "absolutePath": "/Users/rchuqiao/Documents/renchuqiao/karm/contracts/CompoundGovernance.sol",
+    "exportedSymbols": {
+      "CompoundGovernance": [
+        7
+      ]
+    },
+    "id": 8,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:1"
+      },
+      {
+        "absolutePath": "/Users/rchuqiao/Documents/renchuqiao/karm/contracts/compound/Governance/Comp.sol",
+        "file": "./compound/Governance/Comp.sol",
+        "id": 5,
+        "nodeType": "ImportDirective",
+        "scope": 8,
+        "sourceUnit": 1708,
+        "src": "34:40:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/rchuqiao/Documents/renchuqiao/karm/contracts/compound/Governance/GovernorAlpha.sol",
+        "file": "./compound/Governance/GovernorAlpha.sol",
+        "id": 6,
+        "nodeType": "ImportDirective",
+        "scope": 8,
+        "sourceUnit": 2958,
+        "src": "75:49:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 7,
+        "linearizedBaseContracts": [
+          7
+        ],
+        "name": "CompoundGovernance",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 8,
+        "src": "157:36:1"
+      }
+    ],
+    "src": "0:193:1"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/rchuqiao/Documents/renchuqiao/karm/contracts/CompoundGovernance.sol",
+    "exportedSymbols": {
+      "CompoundGovernance": [
+        7
+      ]
+    },
+    "id": 8,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:1"
+      },
+      {
+        "absolutePath": "/Users/rchuqiao/Documents/renchuqiao/karm/contracts/compound/Governance/Comp.sol",
+        "file": "./compound/Governance/Comp.sol",
+        "id": 5,
+        "nodeType": "ImportDirective",
+        "scope": 8,
+        "sourceUnit": 1708,
+        "src": "34:40:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/rchuqiao/Documents/renchuqiao/karm/contracts/compound/Governance/GovernorAlpha.sol",
+        "file": "./compound/Governance/GovernorAlpha.sol",
+        "id": 6,
+        "nodeType": "ImportDirective",
+        "scope": 8,
+        "sourceUnit": 2958,
+        "src": "75:49:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 7,
+        "linearizedBaseContracts": [
+          7
+        ],
+        "name": "CompoundGovernance",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 8,
+        "src": "157:36:1"
+      }
+    ],
+    "src": "0:193:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.0+commit.26b70077.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.1.0",
+  "updatedAt": "2020-05-24T07:15:05.557Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
