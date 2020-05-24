@@ -23,12 +23,17 @@ contract Opyn {
         ocDai.createETHCollateralOption.value(collateral)(numOptions, address(this));
     }
     
-    function createOptionsContract() public {
-        OptionsFactory factory = OptionsFactory(0xd9ea7193B33297E9cb86389cD0ec078fd5777aF1); 
+    function createOptionsContract(address _optionsFactory, string memory asset, address assetAddress) public returns (address) {
+        OptionsFactory factory = OptionsFactory(_optionsFactory);
+
+        //First add asset to supportAsset list
+        factory.addAsset(asset, assetAddress);
+
+        //Optimization: Make the variables below configurable through Web3.
         address optionContract = factory.createOptionsContract(
                                 "ETH",
-                                -10,
-                                "DAI",
+                                -18,
+                                "cDAI",
                                 -18,
                                 -18,
                                 1,
@@ -37,6 +42,6 @@ contract Opyn {
                                 1574457816,
                                 1574457800 
                                 );
-    
+        return address(optionContract);
     }
 }
