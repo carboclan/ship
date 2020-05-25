@@ -64,5 +64,14 @@
    - contract address:    0xc9Dfd4D6a7d00565b4145E50C6ee9038cf738F2a
    - account:             0x5224abe5757eCe7c9BE1bc72102Ed1E7F02D8003
 
+7_ERC20_migration.js
+====================
+
+   Deploying 'ERC20'
+   -----------------
+   -  transaction hash:    0x78d5309cfaeb016d554a72b9561f37b05c342d24634469623f53fecb3e002be4
+   -  contract address:    0x11c7526822326eAEA47b0b3f77b67A5174C96C78
+   -  account:             0x5224abe5757eCe7c9BE1bc72102Ed1E7F02D8003
+
 ## Rinkeby
 
