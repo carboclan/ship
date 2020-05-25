@@ -106,13 +106,13 @@ export default function Wallet(props) {
       if (web3Modal.cachedProvider) {
         modalButtons.push(
             <Button className="btn btn-sm waves-effect waves-light hoverable accent-3"  onClick={logoutOfWeb3Modal}>
-            Disconnect 
+            Disconnect Wallet
           </Button>
         )
       }else{
         modalButtons.push(
             <Button className="btn btn-sm waves-effect waves-light hoverable accent-3" onClick={loadWeb3Modal}>
-            Connect 
+            Connect to Wallet 
           </Button>
         )
       }
@@ -125,10 +125,6 @@ export default function Wallet(props) {
     
       return (
         <>
-          {props.address?(
-            <Address value={props.address} ensProvider={props.mainnetProvider}/>
-          ):"Connecting..."}
-            <Balance address={props.address} provider={props.injectedProvider} dollarMultiplier={props.price}/> 
           {modalButtons}
         </>
       );
