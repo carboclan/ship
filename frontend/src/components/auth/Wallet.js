@@ -106,13 +106,13 @@ export default function Wallet(props) {
       if (web3Modal.cachedProvider) {
         modalButtons.push(
             <Button className="btn btn-sm waves-effect waves-light hoverable accent-3"  onClick={logoutOfWeb3Modal}>
-            Disconnect Wallet
+            Disconnect 
           </Button>
         )
       }else{
         modalButtons.push(
             <Button className="btn btn-sm waves-effect waves-light hoverable accent-3" onClick={loadWeb3Modal}>
-            Connect to Wallet 
+            Connect
           </Button>
         )
       }

@@ -5,6 +5,7 @@ import { createProject } from "../../actions/projectActions";
 import classnames from "classnames";
 import ContributorSlot from "../contributor-slot";
 import Aave from '../aave-lending/Aave';
+import Borrow from '../compound'
 // Options details
 import ocDAI from '../../ocDAI';
 import optionsFactory from '../../optionsFactory';
@@ -368,6 +369,7 @@ class CreateProject extends Component {
             </button>
                 </div>
                 <Aave/>
+                <Borrow/>
               </div>
             </form>
           </div>

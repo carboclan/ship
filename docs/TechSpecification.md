@@ -14,11 +14,7 @@ A platform for bootstrapping MVPs for side-projects with fair and sustainable in
 - Gain Equity or exit with cash
     - At the end of the project timeline, a contributor gets paid equity tokens or gets an option to exit with cash.
 
-# System Features
-
 **Functional Requirements**: For deatailed overview, read [here](https://github.com/carboclan/hip/blob/master/docs/workflow.md).
-
-## System Dependencies
 
 ## References
 - [Colony](https://colony.io/)

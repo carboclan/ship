@@ -73,5 +73,4 @@
    -  contract address:    0x11c7526822326eAEA47b0b3f77b67A5174C96C78
    -  account:             0x5224abe5757eCe7c9BE1bc72102Ed1E7F02D8003
 
-## Rinkeby
 
