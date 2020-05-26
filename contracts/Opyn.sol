@@ -11,11 +11,11 @@ contract Opyn {
     // Assuming you want to be 200% collateralized
     uint256 constant collateralizationRatio = 200;
 
-    
+
 
     function createERC20Option(address _optionsContract) public payable {
         oToken ocDai = oToken(_optionsContract);
-        ERC20 erc20 = ERC20(0x11c7526822326eAEA47b0b3f77b67A5174C96C78); //KOVAN
+        ERC20 erc20 = ERC20(0x9d9Fe455df6f522d5FB79F1816369c9b962fEdD6); //Rinkeby
     
         // This function tells you the maximum number of options you can safely issue at the minimum collateralization ratio (currently 160%)/ 
         // Note: It is reccomended that you create less than this amount of options. 
@@ -31,9 +31,9 @@ contract Opyn {
         OptionsFactory factory = OptionsFactory(_optionsFactory);
 
         //First add DAI
-        //KOVAN
-        factory.addAsset('DAI', 0xC4375B7De8af5a38a93548eb8453a498222C4fF2);
-        factory.addAsset('HIP', 0x11c7526822326eAEA47b0b3f77b67A5174C96C78);
+        //Rinkeby
+        factory.addAsset('DAI', 0x95b58a6Bff3D14B7DB2f5cb5F0Ad413DC2940658);
+        factory.addAsset('HIP', 0x9d9Fe455df6f522d5FB79F1816369c9b962fEdD6);
 
         //Optimization: Make the variables below configurable through Web3.
         // address optionContract = factory.createOptionsContract(
