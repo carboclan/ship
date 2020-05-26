@@ -1,4 +1,5 @@
-pragma solidity ^0.4.21;
+// pragma solidity ^0.4.21;
+pragma solidity >=0.4.22 <0.7.0;
 
 contract Owner {
     address public owner;
@@ -27,7 +28,7 @@ contract ERC20Token {
     event Burn(address indexed from, uint256 value);
 
     
-    function ERC20Token(uint256 initialSupply, string tokenName, string tokenSymbol) public {
+    constructor(uint256 initialSupply, string memory tokenName, string memory tokenSymbol) public {
         totalSupply = initialSupply * 10 ** uint256(decimals); 
         balanceOf[msg.sender] = totalSupply;            
         name = tokenName;                                   
@@ -87,7 +88,7 @@ contract HIPToken is Owner, ERC20Token {
     event FrozenFunds(address target, bool frozen);
     event ThawedFunds(address target, bool thawed);
     
-    function HIPToken(uint256 initialSupply, string tokenName, string tokenSymbol) 
+    constructor(uint256 initialSupply, string memory tokenName, string memory tokenSymbol) 
     
     ERC20Token(initialSupply, tokenName, tokenSymbol) payable public {}
     
