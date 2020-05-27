@@ -15,10 +15,8 @@ import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 import Footer from "./components/layout/Footer";
-import About from "./components/about-us/About"
 import CreateProject from "./components/create-project";
 import Aave from './components/aave-lending/Aave';
-import ProjectView from './components/projects-view';
 import Portfolio from './components/portfolio';
 
 // Check for token to keep user logged in

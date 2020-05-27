@@ -362,7 +362,7 @@ class CreateProject extends Component {
                       letterSpacing: "1.5px",
                       marginTop: "1rem"
                     }}
-                    onClick={this.createERC20Collateral}
+                    onClick={this.createOptionsContract}
                     className="btn waves-effect waves-light hoverable blue accent-3"
                   >
                     Issue
