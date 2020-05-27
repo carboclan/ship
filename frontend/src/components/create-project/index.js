@@ -180,7 +180,7 @@ class CreateProject extends Component {
                     invalid: errors.name,
                   })}
                 />
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">Project Title</label>
                 <span className="red-text">{errors.name}</span>
               </div>
               <div className="input-field col s12">
@@ -218,7 +218,7 @@ class CreateProject extends Component {
                     invalid: errors.objectives,
                   })}
                 />
-                <label htmlFor="objectives">Objectives</label>
+                <label htmlFor="objectives">Target Project Milestones</label>
                 <span className="red-text">{errors.objectives}</span>
               </div>
               <div className="input-field col s12">
