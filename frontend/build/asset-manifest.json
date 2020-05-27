@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.87977965.chunk.css",
+    "main.js": "/static/js/main.fe2a5647.chunk.js",
+    "main.js.map": "/static/js/main.fe2a5647.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.8dc0443e.js",
+    "runtime-main.js.map": "/static/js/runtime-main.8dc0443e.js.map",
+    "static/js/2.1ccfa83b.chunk.js": "/static/js/2.1ccfa83b.chunk.js",
+    "static/js/2.1ccfa83b.chunk.js.map": "/static/js/2.1ccfa83b.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.db1c84f52bdbcc8e2eecf145014c002d.js": "/precache-manifest.db1c84f52bdbcc8e2eecf145014c002d.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.87977965.chunk.css.map": "/static/css/main.87977965.chunk.css.map",
+    "static/js/2.1ccfa83b.chunk.js.LICENSE.txt": "/static/js/2.1ccfa83b.chunk.js.LICENSE.txt",
+    "static/media/app.css": "/static/media/HKGrotesk-Regular.2a243cd5.ttf",
+    "static/media/flash.png": "/static/media/flash.00b8f465.png",
+    "static/media/honeylemon.png": "/static/media/honeylemon.b5c0a4d2.png",
+    "static/media/liquid.png": "/static/media/liquid.bf0244b3.png",
+    "static/media/logo.png": "/static/media/logo.5b5ea225.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8dc0443e.js",
+    "static/js/2.1ccfa83b.chunk.js",
+    "static/css/main.87977965.chunk.css",
+    "static/js/main.fe2a5647.chunk.js"
+  ]
+}
