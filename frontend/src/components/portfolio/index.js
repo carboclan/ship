@@ -5,6 +5,7 @@ import {
 } from '@aragon/ui';
 
 import { getPreference, storePreference } from '../../utils/storage';
+import Exercise from './Exercise';
 
 function Portfolio() {
   const storedOptionTab = getPreference('optionTab', '0');
@@ -34,6 +35,7 @@ function Portfolio() {
         }}
       />
       </div>
+      <Exercise/>
 
       {tabSelected === 0 ? (
         <DataView
