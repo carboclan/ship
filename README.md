@@ -12,6 +12,32 @@ A platform for bootstrapping MVPs for side-projects with fair and sustainable in
 2. Install dependencies: `cd frontend && npm i` & `cd server && npm i`
 3. Run concurrently: `npm start` 
 
+## How we built it
+### Client interface
+We created a webApp for our front-end user interface. Users with invitation tokens will be able to register on our webApp. Upon logging in, they will be able to see the dashboard with trending projects and options to either join a project or create a new project. 
+- If a user has funding or project ideas, he/she will be able to create a project. When creating the project, he/she is prompted to enter informations such as project deadline, number of contributors and their roles and project description. He/She also has the options to lend their collatroized fund to AAVE or borrow from Compound. He/She needs to collaterize DAI in exchange of puttable project tokens (equity). Upon creation, an option contract will be created on behalf of him/her and he/she will be able to invite contributors.
+- If a user has specific skills and is willing to contribute to any projects, he/she will be able to join a project on the webApp. Once the project leaders accept his/her application, he/she will receive puttable tokens which will be locked in the project address. 
+
+Once the project passed its deadline, contributors have two options regarding their puttbale tokens: redeem them or cash-out. If they choose to cash-out, the option contract will calculate and take out the equivalent amount of DAI from the collateral pool and send them to the contributor's address. If they choose to redeem puttable tokens, the project token (equity) will be sent to their address. 
+
+### Web Service
+The web service provides a REST API to the front-end interfact. It saves user information (name, password and etc.) in MongoDB. Regarding project information, it will sync the project json file to Sia Skynet and return the skynet address to the front-end.
+
+### Proxy of Option Contract
+We leverage Opyn Protocol when creating the option market and option contracts on behalf of our customer. Upon receiving project information, our proxy contract will mint project tokens and create option market by invoking the Opyn option factory contract. Once the creation of option market succeed, the proxy contract will create the option contract by invoking the opyn option contract.
+
+### Compound Borrow Contract
+Our Compound Borrow Contract will borrow DAI by supplying ETH as collateral. It also handles repay once the project ends. 
+
+### AAVE Lending
+TO-DO
+
+### ENS
+TODO
+
+### Portis
+We gives users options to use Portis wallet at the front-end. 
+
 ## Tech Stack
 
 - Backend: Nodejs, MongoDB, Express
