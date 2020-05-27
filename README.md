@@ -13,6 +13,7 @@ A platform for bootstrapping MVPs for side-projects with fair and sustainable in
 3. Run concurrently: `npm start` 
 
 ## How we built it
+
 ### Client interface
 We created a webApp for our front-end user interface. Users with invitation tokens will be able to register on our webApp. Upon logging in, they will be able to see the dashboard with trending projects and options to either join a project or create a new project. 
 - If a user has funding or project ideas, he/she will be able to create a project. When creating the project, he/she is prompted to enter informations such as project deadline, number of contributors and their roles and project description. He/She also has the options to lend their collatroized fund to AAVE or borrow from Compound. He/She needs to collaterize DAI in exchange of puttable project tokens (equity). Upon creation, an option contract will be created on behalf of him/her and he/she will be able to invite contributors.
@@ -40,12 +41,20 @@ We gives users options to use Portis wallet at the front-end.
 
 ## Tech Stack
 
-- Backend: Nodejs, MongoDB, Express
-- Frontend: Reactjs
-- Contracts: Solidity
+- **Backend**: Nodejs, MongoDB, Express
+- **Frontend**: Reactjs
+- **Contracts**: Solidity
+
+## Built with
+
+- **Aave**: Lending - deposit to earn interest on locked tokens.
+- **Compound**: Borrow ERC20 tokens with ETH as collateral.
+- **Opyn**: Puttable Equity tokens.
+- **Sia Skynet**: Store flash org details on skynet.
+- **Portist**: As a wallet provider.
 
 ## Deployment
-$HIP Token deployend on Rinkeby [here](https://rinkeby.etherscan.io/tx/0xfd1b6774c3f129e6e470e6fd201757d1a1d4a433e35975ff7ed30e3a60f88cdb).
+$HIP Token deployed on Rinkeby [here](https://rinkeby.etherscan.io/tx/0xfd1b6774c3f129e6e470e6fd201757d1a1d4a433e35975ff7ed30e3a60f88cdb).
 
 ## Contributors
 
