@@ -27,7 +27,7 @@ The web service provides a REST API to the front-end interfact. It saves user in
 We leverage Opyn Protocol when creating the option market and option contracts on behalf of our customer. Upon receiving project information, our proxy contract will mint project tokens and create option market by invoking the Opyn option factory contract. Once the creation of option market succeed, the proxy contract will create the option contract by invoking the opyn option contract.
 
 ### Compound Borrow Contract
-Our Compound Borrow Contract will 
+Our Compound Borrow Contract will borrow DAI by supplying ETH as collateral. It also handles repay once the project ends. 
 
 ### AAVE Lending
 TO-DO
