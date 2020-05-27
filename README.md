@@ -51,7 +51,7 @@ We gives users options to use Portis wallet at the front-end.
 - **Compound**: Borrow ERC20 tokens with ETH as collateral.
 - **Opyn**: Puttable Equity tokens.
 - **Sia Skynet**: Store flash org details on skynet.
-- **Portist**: As a wallet provider.
+- **Portis**: As a wallet provider.
 
 ## Deployment
 $HIP Token deployed on Rinkeby [here](https://rinkeby.etherscan.io/tx/0xfd1b6774c3f129e6e470e6fd201757d1a1d4a433e35975ff7ed30e3a60f88cdb).

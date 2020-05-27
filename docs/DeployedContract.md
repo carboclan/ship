@@ -1,4 +1,4 @@
-# List of deployed contracts to Test Net
+# List of deployed contracts to TestNet
 
 ## Kovan Test Net
 
