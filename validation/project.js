@@ -7,8 +7,7 @@ exports.validateCreateProjectInput = (data) => {
   data.name = !isEmpty(data.name) ? data.name : "";
   data.productVersion = !isEmpty(data.productVersion) ? data.productVersion : "";
   data.specification = !isEmpty(data.specification) ? data.specification : "";
-  data.outcomeObjectives = !isEmpty(data.outcomeObjectives) ? data.outcomeObjectives : "";
-  data.minNumContributor = !isEmpty(data.minNumContributor) ? data.minNumContributor : 0;
+  data.objectives = !isEmpty(data.objectives) ? data.objectives : "";
   data.ownerId = !isEmpty(data.ownerId) ? data.ownerId : "";
   // Name checks
   if (Validator.isEmpty(data.name)) {
@@ -26,10 +25,6 @@ exports.validateCreateProjectInput = (data) => {
   if (Validator.isEmpty(data.outcomeObjectives)) {
     errors.outcomeObjectives = "outcomeObjectives field is required"
   } 
-  // MinNumContributor checks
-  if (data.minNumContributor < 1) {
-    errors.minNumContributor = "minNumberContributor field is required and must be larger than 0"
-  }
   // ownerId checks
   if (Validator.isEmpty(data.ownerId)) {
     errors.ownerId = "ownerId field is required"

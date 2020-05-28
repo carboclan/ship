@@ -1,14 +1,22 @@
+// Sia skynet
+const skynet = require('@nebulous/skynet');
+
+const fs = require('fs')
+const path = require('path');
+
 const express = require("express");
 const router = express.Router();
 
 // Input Validators
-const validate = require("../../validation/project");
+const validate = require("../../../server/validation/project");
 
 // Models
 const Project = require("../../models/project");
 const ContributorSlot = require("../../models/contributor-slot");
 const Cache = require("../../models/cache");
 const userModule = require('../../models/user');
+
+const filePath = '/Users/rchuqiao/Documents/renchuqiao/karm/server/temp/';
 
 // @route POST api/projects/create
 // @desc Create a Project
@@ -18,26 +26,43 @@ router.post("/create", (req, res) => {
   const { errors, isValid } = validate.validateCreateProjectInput(req.body);
   if (!isValid) return res.status(400).json(errors);
   // Save to DB
+  console.log("Saving to DB");
   const contributorSlots = req.body.contributorSlots;
   const project = req.body;
   project.contributorSlots = undefined;
   Project.create(project)
     .then((project) => {
-      ContributorSlot.create(
-        ...contributorSlots.map((slot) => ({ ...slot, projectId: project.id }))
-      )
-        .then(() => {
-          res.status(200).json(project.id);
-        })
-        .catch((error) => {
-          console.log(error);
-          res.status(500).json("unexpected error");
-        });
-    })
-    .catch((error) => {
-      console.log(error);
-      res.status(500).json("unexpected error");
-    });
+      // Save project json to file
+      var file = path.join(__dirname, '..', '..', 'temp', 'project_'+ project._id.toString());
+      console.log("saving to file " + file);
+      fs.writeFileSync(file, JSON.stringify(project.toJSON()));
+
+      uploadToSia(file).then((s) => {
+        console.log(s);
+        Project.update({_id: project._id}, {$set: {skylink: s}}).then(p => {
+          ContributorSlot.create(
+            ...contributorSlots.map((slot) => ({ ...slot, projectId: project.id }))
+          )
+            .then(() => {
+              res.status(200).json(project.id);
+            })
+            .catch((error) => {
+              console.log(error);
+              res.status(500).json("unexpected error");
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+            res.status(500).json("unexpected error");
+          });
+       }).catch((error) => {
+         console.log(error);
+         res.status(500).json("Cannot upload to Sia");
+       });
+     }).catch((err) => {
+       console.log(err);
+       res.status(500).json("Cannot create project");
+     });
 });
 
 // @route POST api/projects/apply
@@ -72,7 +97,7 @@ router.post("/apply", (req, res) => {
 // @route POST api/projects/list
 // @desc List pending project by ownerId
 // @access Public
-router.post("/list", (req, res) => {
+router.get("/list", (req, res) => {
   // Form validation
   const { errors, isValid } = validate.validateListProjectInput(req.body);
   // Check validation
@@ -91,6 +116,15 @@ router.post("/list", (req, res) => {
           return res.json(results)	
       });	
     }
+  });
+});
+
+// @route GET api/projects/skylink/projectId
+// @desc get skylink by projectId
+// @access Public
+router.get("/skylink/projectId", (req, res) => {
+  Project.find({_id: req.body.projectId}).then((p) => {
+    return res.json(p.skylink);
   });
 });
 
@@ -114,7 +148,7 @@ router.post("/accept", (req, res) => {
                     if (!user) {	
                         return res.status(404).json({ userNotFound: "No such applicant."});	
                     } else {	
-                        Project.update({_id: doc.projectId}, {$push: {contributors: user } }).then(x => {	
+                        Project.update({_id: doc.projectId}, {$push: {contributors: user} }).then(x => {	
                             return res.json({	
                                 projectId: doc.projectId,	
                                 contributorId: doc.contributorId,	
@@ -154,5 +188,18 @@ router.post("/acceptById", (req, res) => {
     }
   });
 });
+
+async function uploadToSia(file) {
+  // Save to Sia Skynet 
+  console.log("saving to Sia with file " + file);
+  // console.log("saving to sia " + filePath + 'project_' + project._id);
+  // upload
+  skylink = await skynet.UploadFile(
+     file,
+     skynet.DefaultUploadOptions
+  );
+  console.log(`Upload successful, skylink: ${skylink}`);
+  return skylink;
+}
 
 module.exports = router;

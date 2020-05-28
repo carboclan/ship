@@ -40,6 +40,10 @@ const ProjectSchema = new Schema({
     min: 0,
     required: true,
   },
+  skylink: {
+    type: String,
+    required: false
+  },
   contributors: {
     type: [UserSchema],
     required: false,
