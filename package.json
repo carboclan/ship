@@ -9,9 +9,11 @@
   "scripts": {
     "install-frontend": "cd frontend && npm install",
     "start": "nodemon app.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "cd frontend && npm install"
+    "build": "cd frontend && npm run build",
+    "frontend-install": "cd frontend && npm install",
+    "frontend": "cd frontend && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
+    "heroku-postbuild": "npm run install-frontend && npm run build"
   },
   "repository": {
     "type": "git",
