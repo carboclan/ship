@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 // Input Validators
-const validate = require("../../../server/validation/project");
+const validate = require("../../validation/project");
 
 // Models
 const Project = require("../../models/project");
