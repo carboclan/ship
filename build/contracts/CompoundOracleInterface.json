@@ -1,0 +1,606 @@
+{
+  "contractName": "CompoundOracleInterface",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "asset",
+          "type": "address"
+        }
+      ],
+      "name": "getPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract ERC20",
+          "name": "cToken",
+          "type": "address"
+        }
+      ],
+      "name": "getUnderlyingPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.0+commit.26b70077\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\"}],\"name\":\"getPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ERC20\",\"name\":\"cToken\",\"type\":\"address\"}],\"name\":\"getUnderlyingPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"getPrice(address)\":{\"details\":\"function to get price for an asset\",\"params\":{\"asset\":\"Asset for which to get the price\"},\"returns\":{\"_0\":\"uint mantissa of asset price (scaled by 1e18) or zero if unset or contract paused\"}}}},\"userdoc\":{\"methods\":{\"getPrice(address)\":{\"notice\":\"retrieves price of an asset\"}}}},\"settings\":{\"compilationTarget\":{\"/Users/jenil/Desktop/code/hip/contracts/opyn/lib/CompoundOracleInterface.sol\":\"CompoundOracleInterface\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/jenil/Desktop/code/hip/contracts/ERC20/ERC20.sol\":{\"keccak256\":\"0x7dec91e02924add588dd961de7441337d56752fde4ffb26cd32e70f54caeb962\",\"urls\":[\"bzz-raw://0071f8c43069b68f2601611897b358bd07778edf56027d02d58b2c87a4e3adf4\",\"dweb:/ipfs/QmR9mMf9hmFpjSWj2PbeCDED1LAui8VStmEqGCq9qEofjY\"]},\"/Users/jenil/Desktop/code/hip/contracts/ERC20/IERC20.sol\":{\"keccak256\":\"0x31712bddbfa75b3f78607d7fc2dc00f84f2b5dcb087d7b1b11c2849b243da56d\",\"urls\":[\"bzz-raw://bd3cedc78460469350de613b4f9ba4500f34d763afe6988544d9f6fe60561042\",\"dweb:/ipfs/QmbUX8gxXqVUYzRi2LuNchsjFAK3hqM3xqML5Zp4iTzqWB\"]},\"/Users/jenil/Desktop/code/hip/contracts/SafeMath.sol\":{\"keccak256\":\"0xff7de5024228c01be5a2d04461136b04d5c4f88b599ab4033f495574d6a1494e\",\"urls\":[\"bzz-raw://4465c607da4d5c455227626ba3923d8b7ab4155768ac36bd8d4f3b144418b1f5\",\"dweb:/ipfs/Qmau8VRKdB3TKdQaaQW5ga7fymGt6NK3APLkgdL8o5y75z\"]},\"/Users/jenil/Desktop/code/hip/contracts/opyn/lib/CompoundOracleInterface.sol\":{\"keccak256\":\"0xce78167f1982c7b5e6f0c43a820cf18532ef4b87409592a9de4afdaf17afb1d2\",\"urls\":[\"bzz-raw://6e0c6420c143669f8df0dd0944a0e51864a1219449ef280fe48fc5757c176c81\",\"dweb:/ipfs/QmaPN5UyuHDwNC5WMZuAaTaiG9u1USbNeiXqHucGffWbUW\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// pragma solidity ^0.5.0;\npragma solidity >=0.4.22 <0.7.0;\n// AT MAINNET ADDRESS: 0x02557a5E05DeFeFFD4cAe6D83eA3d173B272c904\n// import \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\nimport \"../../ERC20/ERC20.sol\";\nabstract contract CompoundOracleInterface {\n    // returns asset:eth -- to get USDC:eth, have to do 10**24/result,\n\n\n    constructor() public {\n    }\n\n    /**\n  * @notice retrieves price of an asset\n  * @dev function to get price for an asset\n  * @param asset Asset for which to get the price\n  * @return uint mantissa of asset price (scaled by 1e18) or zero if unset or contract paused\n  */\n    function getPrice(address asset) public view virtual returns (uint);\n    function getUnderlyingPrice(ERC20 cToken) public view virtual returns (uint);\n    // function getPrice(address asset) public view returns (uint) {\n    //     return 527557000000000;\n    // }\n\n}\n",
+  "sourcePath": "/Users/jenil/Desktop/code/hip/contracts/opyn/lib/CompoundOracleInterface.sol",
+  "ast": {
+    "absolutePath": "/Users/jenil/Desktop/code/hip/contracts/opyn/lib/CompoundOracleInterface.sol",
+    "exportedSymbols": {
+      "CompoundOracleInterface": [
+        4029
+      ]
+    },
+    "id": 4030,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4009,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "27:32:13"
+      },
+      {
+        "absolutePath": "/Users/jenil/Desktop/code/hip/contracts/ERC20/ERC20.sol",
+        "file": "../../ERC20/ERC20.sol",
+        "id": 4010,
+        "nodeType": "ImportDirective",
+        "scope": 4030,
+        "sourceUnit": 396,
+        "src": "185:31:13",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": true,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 4029,
+        "linearizedBaseContracts": [
+          4029
+        ],
+        "name": "CompoundOracleInterface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 4013,
+              "nodeType": "Block",
+              "src": "359:7:13",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 4014,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4011,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "349:2:13"
+            },
+            "returnParameters": {
+              "id": 4012,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "359:0:13"
+            },
+            "scope": 4029,
+            "src": "338:28:13",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice retrieves price of an asset\n@dev function to get price for an asset\n@param asset Asset for which to get the price\n@return uint mantissa of asset price (scaled by 1e18) or zero if unset or contract paused",
+            "functionSelector": "41976e09",
+            "id": 4021,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPrice",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4017,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4016,
+                  "name": "asset",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4021,
+                  "src": "631:13:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4015,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "631:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "630:15:13"
+            },
+            "returnParameters": {
+              "id": 4020,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4019,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4021,
+                  "src": "675:4:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4018,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "675:4:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "674:6:13"
+            },
+            "scope": 4029,
+            "src": "613:68:13",
+            "stateMutability": "view",
+            "virtual": true,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "functionSelector": "fc57d4df",
+            "id": 4028,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getUnderlyingPrice",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4024,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4023,
+                  "name": "cToken",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4028,
+                  "src": "714:12:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$395",
+                    "typeString": "contract ERC20"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4022,
+                    "name": "ERC20",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 395,
+                    "src": "714:5:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC20_$395",
+                      "typeString": "contract ERC20"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "713:14:13"
+            },
+            "returnParameters": {
+              "id": 4027,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4026,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4028,
+                  "src": "757:4:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4025,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "757:4:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "756:6:13"
+            },
+            "scope": 4029,
+            "src": "686:77:13",
+            "stateMutability": "view",
+            "virtual": true,
+            "visibility": "public"
+          }
+        ],
+        "scope": 4030,
+        "src": "217:662:13"
+      }
+    ],
+    "src": "27:853:13"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/jenil/Desktop/code/hip/contracts/opyn/lib/CompoundOracleInterface.sol",
+    "exportedSymbols": {
+      "CompoundOracleInterface": [
+        4029
+      ]
+    },
+    "id": 4030,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4009,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "27:32:13"
+      },
+      {
+        "absolutePath": "/Users/jenil/Desktop/code/hip/contracts/ERC20/ERC20.sol",
+        "file": "../../ERC20/ERC20.sol",
+        "id": 4010,
+        "nodeType": "ImportDirective",
+        "scope": 4030,
+        "sourceUnit": 396,
+        "src": "185:31:13",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": true,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 4029,
+        "linearizedBaseContracts": [
+          4029
+        ],
+        "name": "CompoundOracleInterface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 4013,
+              "nodeType": "Block",
+              "src": "359:7:13",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 4014,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4011,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "349:2:13"
+            },
+            "returnParameters": {
+              "id": 4012,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "359:0:13"
+            },
+            "scope": 4029,
+            "src": "338:28:13",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice retrieves price of an asset\n@dev function to get price for an asset\n@param asset Asset for which to get the price\n@return uint mantissa of asset price (scaled by 1e18) or zero if unset or contract paused",
+            "functionSelector": "41976e09",
+            "id": 4021,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPrice",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4017,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4016,
+                  "name": "asset",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4021,
+                  "src": "631:13:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4015,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "631:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "630:15:13"
+            },
+            "returnParameters": {
+              "id": 4020,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4019,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4021,
+                  "src": "675:4:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4018,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "675:4:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "674:6:13"
+            },
+            "scope": 4029,
+            "src": "613:68:13",
+            "stateMutability": "view",
+            "virtual": true,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "functionSelector": "fc57d4df",
+            "id": 4028,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getUnderlyingPrice",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 4024,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4023,
+                  "name": "cToken",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4028,
+                  "src": "714:12:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$395",
+                    "typeString": "contract ERC20"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4022,
+                    "name": "ERC20",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 395,
+                    "src": "714:5:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC20_$395",
+                      "typeString": "contract ERC20"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "713:14:13"
+            },
+            "returnParameters": {
+              "id": 4027,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4026,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 4028,
+                  "src": "757:4:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4025,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "757:4:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "756:6:13"
+            },
+            "scope": 4029,
+            "src": "686:77:13",
+            "stateMutability": "view",
+            "virtual": true,
+            "visibility": "public"
+          }
+        ],
+        "scope": 4030,
+        "src": "217:662:13"
+      }
+    ],
+    "src": "27:853:13"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.0+commit.26b70077.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.1.0",
+  "updatedAt": "2020-05-22T17:04:41.535Z",
+  "devdoc": {
+    "methods": {
+      "getPrice(address)": {
+        "details": "function to get price for an asset",
+        "params": {
+          "asset": "Asset for which to get the price"
+        },
+        "returns": {
+          "_0": "uint mantissa of asset price (scaled by 1e18) or zero if unset or contract paused"
+        }
+      }
+    }
+  },
+  "userdoc": {
+    "methods": {
+      "getPrice(address)": {
+        "notice": "retrieves price of an asset"
+      }
+    }
+  }
+}

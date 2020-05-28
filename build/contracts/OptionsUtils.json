@@ -1,0 +1,2349 @@
+{
+  "contractName": "OptionsUtils",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_uniswapFactory",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_compoundOracle",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "COMPOUND_ORACLE",
+      "outputs": [
+        {
+          "internalType": "contract CompoundOracleInterface",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "UNISWAP_FACTORY",
+      "outputs": [
+        {
+          "internalType": "contract UniswapFactoryInterface",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_token",
+          "type": "address"
+        }
+      ],
+      "name": "getExchange",
+      "outputs": [
+        {
+          "internalType": "contract UniswapExchangeInterface",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "_ierc20",
+          "type": "address"
+        }
+      ],
+      "name": "isETH",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.0+commit.26b70077\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_uniswapFactory\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_compoundOracle\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"COMPOUND_ORACLE\",\"outputs\":[{\"internalType\":\"contract CompoundOracleInterface\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"UNISWAP_FACTORY\",\"outputs\":[{\"internalType\":\"contract UniswapFactoryInterface\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_token\",\"type\":\"address\"}],\"name\":\"getExchange\",\"outputs\":[{\"internalType\":\"contract UniswapExchangeInterface\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"_ierc20\",\"type\":\"address\"}],\"name\":\"isETH\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/jenil/Desktop/code/hip/contracts/opyn/OptionsUtils.sol\":\"OptionsUtils\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/jenil/Desktop/code/hip/contracts/ERC20/ERC20.sol\":{\"keccak256\":\"0x7dec91e02924add588dd961de7441337d56752fde4ffb26cd32e70f54caeb962\",\"urls\":[\"bzz-raw://0071f8c43069b68f2601611897b358bd07778edf56027d02d58b2c87a4e3adf4\",\"dweb:/ipfs/QmR9mMf9hmFpjSWj2PbeCDED1LAui8VStmEqGCq9qEofjY\"]},\"/Users/jenil/Desktop/code/hip/contracts/ERC20/IERC20.sol\":{\"keccak256\":\"0x31712bddbfa75b3f78607d7fc2dc00f84f2b5dcb087d7b1b11c2849b243da56d\",\"urls\":[\"bzz-raw://bd3cedc78460469350de613b4f9ba4500f34d763afe6988544d9f6fe60561042\",\"dweb:/ipfs/QmbUX8gxXqVUYzRi2LuNchsjFAK3hqM3xqML5Zp4iTzqWB\"]},\"/Users/jenil/Desktop/code/hip/contracts/SafeMath.sol\":{\"keccak256\":\"0xff7de5024228c01be5a2d04461136b04d5c4f88b599ab4033f495574d6a1494e\",\"urls\":[\"bzz-raw://4465c607da4d5c455227626ba3923d8b7ab4155768ac36bd8d4f3b144418b1f5\",\"dweb:/ipfs/Qmau8VRKdB3TKdQaaQW5ga7fymGt6NK3APLkgdL8o5y75z\"]},\"/Users/jenil/Desktop/code/hip/contracts/opyn/OptionsUtils.sol\":{\"keccak256\":\"0x96d9cfd0dbac6d659c0758f714043b2b23a12984f854e101eb1cb6c399473dfa\",\"urls\":[\"bzz-raw://47d0ffdb7d02133f3c94ce54a9d54cae4ffc9a3ec40ebcb5e0a687a6e07b375c\",\"dweb:/ipfs/QmaFDuYZ9p6HdiQHKa57wy5ZbnuxYUU3L4Hegde26Yfitg\"]},\"/Users/jenil/Desktop/code/hip/contracts/opyn/lib/CompoundOracleInterface.sol\":{\"keccak256\":\"0xce78167f1982c7b5e6f0c43a820cf18532ef4b87409592a9de4afdaf17afb1d2\",\"urls\":[\"bzz-raw://6e0c6420c143669f8df0dd0944a0e51864a1219449ef280fe48fc5757c176c81\",\"dweb:/ipfs/QmaPN5UyuHDwNC5WMZuAaTaiG9u1USbNeiXqHucGffWbUW\"]},\"/Users/jenil/Desktop/code/hip/contracts/opyn/lib/UniswapExchangeInterface.sol\":{\"keccak256\":\"0xc233152c01409a74d1979d38b61a40adcf756f2f6165e1ef373dd8c0380da804\",\"urls\":[\"bzz-raw://4cd3dd849ddcfad26067901f43d64ff5536df7f118bca7a2b771d9dc45c61bcf\",\"dweb:/ipfs/QmadK9anV53Kw5FDkq6w2RAnmjT6i9JJoFTvaRx51cmQdA\"]},\"/Users/jenil/Desktop/code/hip/contracts/opyn/lib/UniswapFactoryInterface.sol\":{\"keccak256\":\"0xdac49a7822e7535776f6203ef8f5a2eb143a4780f23578727b18c6e887ca801e\",\"urls\":[\"bzz-raw://19e0016f05bbc01be60c3793c726dcb35092c3f697b582bcb536307e5655f347\",\"dweb:/ipfs/QmSZZkWFP1hVfuymQMAviFf8WnQm8YHik1FSYQVxXFgsBD\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506040516103793803806103798339818101604052604081101561003357600080fd5b50805160209091015160008054600160a060020a03938416600160a060020a031991821617909155600180549390921692169190911790556102ff8061007a6000396000f3fe608060405234801561001057600080fd5b5060043610610068577c0100000000000000000000000000000000000000000000000000000000600035046306f2bf62811461006d5780638a5e8cc7146100af578063c74c0fac146100b7578063f70a2508146100bf575b600080fd5b6100936004803603602081101561008357600080fd5b5035600160a060020a03166100f9565b60408051600160a060020a039092168252519081900360200190f35b61009361029e565b6100936102ad565b6100e5600480360360208110156100d557600080fd5b5035600160a060020a03166102bc565b604080519115158252519081900360200190f35b60008054604080517f06f2bf62000000000000000000000000000000000000000000000000000000008152600160a060020a03858116600483015291518493909216916306f2bf6291602480820192602092909190829003018186803b15801561016257600080fd5b505afa158015610176573d6000803e3d6000fd5b505050506040513d602081101561018c57600080fd5b5051600160a060020a0316141561020457604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601260248201527f4e6f207061796f75742065786368616e67650000000000000000000000000000604482015290519081900360640190fd5b60008054604080517f06f2bf62000000000000000000000000000000000000000000000000000000008152600160a060020a038681166004830152915191909216916306f2bf62916024808301926020929190829003018186803b15801561026b57600080fd5b505afa15801561027f573d6000803e3d6000fd5b505050506040513d602081101561029557600080fd5b50519392505050565b600154600160a060020a031681565b600054600160a060020a031681565b600160a060020a0316159056fea26469706673582212203ae093fb0bbd2bb6c0c273454a7b29a8df6a4cc0766408a3b085f7320f89c2ff64736f6c63430006000033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b5060043610610068577c0100000000000000000000000000000000000000000000000000000000600035046306f2bf62811461006d5780638a5e8cc7146100af578063c74c0fac146100b7578063f70a2508146100bf575b600080fd5b6100936004803603602081101561008357600080fd5b5035600160a060020a03166100f9565b60408051600160a060020a039092168252519081900360200190f35b61009361029e565b6100936102ad565b6100e5600480360360208110156100d557600080fd5b5035600160a060020a03166102bc565b604080519115158252519081900360200190f35b60008054604080517f06f2bf62000000000000000000000000000000000000000000000000000000008152600160a060020a03858116600483015291518493909216916306f2bf6291602480820192602092909190829003018186803b15801561016257600080fd5b505afa158015610176573d6000803e3d6000fd5b505050506040513d602081101561018c57600080fd5b5051600160a060020a0316141561020457604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601260248201527f4e6f207061796f75742065786368616e67650000000000000000000000000000604482015290519081900360640190fd5b60008054604080517f06f2bf62000000000000000000000000000000000000000000000000000000008152600160a060020a038681166004830152915191909216916306f2bf62916024808301926020929190829003018186803b15801561026b57600080fd5b505afa15801561027f573d6000803e3d6000fd5b505050506040513d602081101561029557600080fd5b50519392505050565b600154600160a060020a031681565b600054600160a060020a031681565b600160a060020a0316159056fea26469706673582212203ae093fb0bbd2bb6c0c273454a7b29a8df6a4cc0766408a3b085f7320f89c2ff64736f6c63430006000033",
+  "sourceMap": "225:965:11:-:0;;;390:212;8:9:-1;5:2;;;30:1;27;20:12;5:2;390:212:11;;;;;;;;;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;390:212:11;;;;;;;469:15;:58;;-1:-1:-1;;;;;469:58:11;;;-1:-1:-1;;;;;;469:58:11;;;;;;;;537;;;;;;;;;;;;;;225:965;;;;;;",
+  "deployedSourceMap": "225:965:11:-:0;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;225:965:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;679:401;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;679:401:11;-1:-1:-1;;;;;679:401:11;;:::i;:::-;;;;-1:-1:-1;;;;;679:401:11;;;;;;;;;;;;;;337:46;;;:::i;284:::-;;;:::i;1086:102::-;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;1086:102:11;-1:-1:-1;;;;;1086:102:11;;:::i;:::-;;;;;;;;;;;;;;;;;;679:401;761:24;813:15;;:35;;;;;;-1:-1:-1;;;;;813:35:11;;;;;;;;;761:24;;813:15;;;;:27;;:35;;;;;;;;;;;;;;;:15;:35;;;5:2:-1;;;;30:1;27;20:12;5:2;813:35:11;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;813:35:11;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;813:35:11;-1:-1:-1;;;;;805:58:11;;801:117;;;879:28;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;801:117;928:33;1002:15;;:35;;;;;;-1:-1:-1;;;;;1002:35:11;;;;;;;;;:15;;;;;:27;;:35;;;;;;;;;;;;;;:15;:35;;;5:2:-1;;;;30:1;27;20:12;5:2;1002:35:11;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;1002:35:11;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;1002:35:11;;679:401;-1:-1:-1;;;679:401:11:o;337:46::-;;;-1:-1:-1;;;;;337:46:11;;:::o;284:::-;;;-1:-1:-1;;;;;284:46:11;;:::o;1086:102::-;-1:-1:-1;;;;;1161:20:11;;;1086:102::o",
+  "source": "// pragma solidity 0.5.10;\npragma solidity >=0.4.22 <0.7.0;\n\nimport \"./lib/CompoundOracleInterface.sol\";\nimport \"./lib/UniswapExchangeInterface.sol\";\nimport \"./lib/UniswapFactoryInterface.sol\";\nimport \"../ERC20/IERC20.sol\";\n\ncontract OptionsUtils {\n    // defauls are for mainnet\n    UniswapFactoryInterface public UNISWAP_FACTORY;\n\n    CompoundOracleInterface public COMPOUND_ORACLE;\n\n    constructor(address _uniswapFactory, address _compoundOracle) public {\n        UNISWAP_FACTORY = UniswapFactoryInterface(_uniswapFactory);\n        COMPOUND_ORACLE = CompoundOracleInterface(_compoundOracle);\n    }\n\n    // TODO: for now gets Uniswap, later update to get other exchanges\n    function getExchange(address _token)\n        public\n        view\n        returns (UniswapExchangeInterface)\n    {\n        if (address(UNISWAP_FACTORY.getExchange(_token)) == address(0)) {\n            revert(\"No payout exchange\");\n        }\n\n        UniswapExchangeInterface exchange = UniswapExchangeInterface(\n            UNISWAP_FACTORY.getExchange(_token)\n        );\n\n        return exchange;\n    }\n\n    function isETH(IERC20 _ierc20) public pure returns (bool) {\n        return _ierc20 == IERC20(0);\n    }\n}\n",
+  "sourcePath": "/Users/jenil/Desktop/code/hip/contracts/opyn/OptionsUtils.sol",
+  "ast": {
+    "absolutePath": "/Users/jenil/Desktop/code/hip/contracts/opyn/OptionsUtils.sol",
+    "exportedSymbols": {
+      "OptionsUtils": [
+        3875
+      ]
+    },
+    "id": 3876,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3795,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "27:32:11"
+      },
+      {
+        "absolutePath": "/Users/jenil/Desktop/code/hip/contracts/opyn/lib/CompoundOracleInterface.sol",
+        "file": "./lib/CompoundOracleInterface.sol",
+        "id": 3796,
+        "nodeType": "ImportDirective",
+        "scope": 3876,
+        "sourceUnit": 4030,
+        "src": "61:43:11",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jenil/Desktop/code/hip/contracts/opyn/lib/UniswapExchangeInterface.sol",
+        "file": "./lib/UniswapExchangeInterface.sol",
+        "id": 3797,
+        "nodeType": "ImportDirective",
+        "scope": 3876,
+        "sourceUnit": 5127,
+        "src": "105:44:11",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jenil/Desktop/code/hip/contracts/opyn/lib/UniswapFactoryInterface.sol",
+        "file": "./lib/UniswapFactoryInterface.sol",
+        "id": 3798,
+        "nodeType": "ImportDirective",
+        "scope": 3876,
+        "sourceUnit": 5167,
+        "src": "150:43:11",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jenil/Desktop/code/hip/contracts/ERC20/IERC20.sol",
+        "file": "../ERC20/IERC20.sol",
+        "id": 3799,
+        "nodeType": "ImportDirective",
+        "scope": 3876,
+        "sourceUnit": 466,
+        "src": "194:29:11",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 3875,
+        "linearizedBaseContracts": [
+          3875
+        ],
+        "name": "OptionsUtils",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "functionSelector": "c74c0fac",
+            "id": 3801,
+            "name": "UNISWAP_FACTORY",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 3875,
+            "src": "284:46:11",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_UniswapFactoryInterface_$5166",
+              "typeString": "contract UniswapFactoryInterface"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 3800,
+              "name": "UniswapFactoryInterface",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 5166,
+              "src": "284:23:11",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_UniswapFactoryInterface_$5166",
+                "typeString": "contract UniswapFactoryInterface"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "8a5e8cc7",
+            "id": 3803,
+            "name": "COMPOUND_ORACLE",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 3875,
+            "src": "337:46:11",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_CompoundOracleInterface_$4029",
+              "typeString": "contract CompoundOracleInterface"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 3802,
+              "name": "CompoundOracleInterface",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 4029,
+              "src": "337:23:11",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_CompoundOracleInterface_$4029",
+                "typeString": "contract CompoundOracleInterface"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3822,
+              "nodeType": "Block",
+              "src": "459:143:11",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 3814,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 3810,
+                      "name": "UNISWAP_FACTORY",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3801,
+                      "src": "469:15:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_UniswapFactoryInterface_$5166",
+                        "typeString": "contract UniswapFactoryInterface"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 3812,
+                          "name": "_uniswapFactory",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3805,
+                          "src": "511:15:11",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 3811,
+                        "name": "UniswapFactoryInterface",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5166,
+                        "src": "487:23:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_UniswapFactoryInterface_$5166_$",
+                          "typeString": "type(contract UniswapFactoryInterface)"
+                        }
+                      },
+                      "id": 3813,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "487:40:11",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_UniswapFactoryInterface_$5166",
+                        "typeString": "contract UniswapFactoryInterface"
+                      }
+                    },
+                    "src": "469:58:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_UniswapFactoryInterface_$5166",
+                      "typeString": "contract UniswapFactoryInterface"
+                    }
+                  },
+                  "id": 3815,
+                  "nodeType": "ExpressionStatement",
+                  "src": "469:58:11"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 3820,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 3816,
+                      "name": "COMPOUND_ORACLE",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3803,
+                      "src": "537:15:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_CompoundOracleInterface_$4029",
+                        "typeString": "contract CompoundOracleInterface"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 3818,
+                          "name": "_compoundOracle",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3807,
+                          "src": "579:15:11",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 3817,
+                        "name": "CompoundOracleInterface",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4029,
+                        "src": "555:23:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_CompoundOracleInterface_$4029_$",
+                          "typeString": "type(contract CompoundOracleInterface)"
+                        }
+                      },
+                      "id": 3819,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "555:40:11",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_CompoundOracleInterface_$4029",
+                        "typeString": "contract CompoundOracleInterface"
+                      }
+                    },
+                    "src": "537:58:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_CompoundOracleInterface_$4029",
+                      "typeString": "contract CompoundOracleInterface"
+                    }
+                  },
+                  "id": 3821,
+                  "nodeType": "ExpressionStatement",
+                  "src": "537:58:11"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 3823,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 3808,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3805,
+                  "name": "_uniswapFactory",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3823,
+                  "src": "402:23:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3804,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "402:7:11",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3807,
+                  "name": "_compoundOracle",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3823,
+                  "src": "427:23:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3806,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "427:7:11",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "401:50:11"
+            },
+            "returnParameters": {
+              "id": 3809,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "459:0:11"
+            },
+            "scope": 3875,
+            "src": "390:212:11",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3859,
+              "nodeType": "Block",
+              "src": "791:289:11",
+              "statements": [
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    },
+                    "id": 3841,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "id": 3834,
+                              "name": "_token",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 3825,
+                              "src": "841:6:11",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 3832,
+                              "name": "UNISWAP_FACTORY",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 3801,
+                              "src": "813:15:11",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_contract$_UniswapFactoryInterface_$5166",
+                                "typeString": "contract UniswapFactoryInterface"
+                              }
+                            },
+                            "id": 3833,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "getExchange",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 5146,
+                            "src": "813:27:11",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_address_$",
+                              "typeString": "function (address) view external returns (address)"
+                            }
+                          },
+                          "id": 3835,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "813:35:11",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 3831,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "nodeType": "ElementaryTypeNameExpression",
+                        "src": "805:7:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_address_$",
+                          "typeString": "type(address)"
+                        },
+                        "typeName": {
+                          "id": 3830,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "805:7:11",
+                          "typeDescriptions": {
+                            "typeIdentifier": null,
+                            "typeString": null
+                          }
+                        }
+                      },
+                      "id": 3836,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "805:44:11",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "hexValue": "30",
+                          "id": 3839,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "861:1:11",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          }
+                        ],
+                        "id": 3838,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "nodeType": "ElementaryTypeNameExpression",
+                        "src": "853:7:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_address_$",
+                          "typeString": "type(address)"
+                        },
+                        "typeName": {
+                          "id": 3837,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "853:7:11",
+                          "typeDescriptions": {
+                            "typeIdentifier": null,
+                            "typeString": null
+                          }
+                        }
+                      },
+                      "id": 3840,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "853:10:11",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "src": "805:58:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 3847,
+                  "nodeType": "IfStatement",
+                  "src": "801:117:11",
+                  "trueBody": {
+                    "id": 3846,
+                    "nodeType": "Block",
+                    "src": "865:53:11",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "hexValue": "4e6f207061796f75742065786368616e6765",
+                              "id": 3843,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "string",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "886:20:11",
+                              "subdenomination": null,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_stringliteral_63c778e8c67cfe31d3025edd9a70a15ec31a53adcb4754594619db637d8ed367",
+                                "typeString": "literal_string \"No payout exchange\""
+                              },
+                              "value": "No payout exchange"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_stringliteral_63c778e8c67cfe31d3025edd9a70a15ec31a53adcb4754594619db637d8ed367",
+                                "typeString": "literal_string \"No payout exchange\""
+                              }
+                            ],
+                            "id": 3842,
+                            "name": "revert",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [
+                              5494,
+                              5495
+                            ],
+                            "referencedDeclaration": 5495,
+                            "src": "879:6:11",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_revert_pure$_t_string_memory_ptr_$returns$__$",
+                              "typeString": "function (string memory) pure"
+                            }
+                          },
+                          "id": 3844,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "879:28:11",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_tuple$__$",
+                            "typeString": "tuple()"
+                          }
+                        },
+                        "id": 3845,
+                        "nodeType": "ExpressionStatement",
+                        "src": "879:28:11"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "assignments": [
+                    3849
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 3849,
+                      "name": "exchange",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 3859,
+                      "src": "928:33:11",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_UniswapExchangeInterface_$5126",
+                        "typeString": "contract UniswapExchangeInterface"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 3848,
+                        "name": "UniswapExchangeInterface",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 5126,
+                        "src": "928:24:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_UniswapExchangeInterface_$5126",
+                          "typeString": "contract UniswapExchangeInterface"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 3856,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 3853,
+                            "name": "_token",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3825,
+                            "src": "1030:6:11",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 3851,
+                            "name": "UNISWAP_FACTORY",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3801,
+                            "src": "1002:15:11",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_UniswapFactoryInterface_$5166",
+                              "typeString": "contract UniswapFactoryInterface"
+                            }
+                          },
+                          "id": 3852,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "getExchange",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 5146,
+                          "src": "1002:27:11",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_address_$",
+                            "typeString": "function (address) view external returns (address)"
+                          }
+                        },
+                        "id": 3854,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1002:35:11",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 3850,
+                      "name": "UniswapExchangeInterface",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 5126,
+                      "src": "964:24:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_contract$_UniswapExchangeInterface_$5126_$",
+                        "typeString": "type(contract UniswapExchangeInterface)"
+                      }
+                    },
+                    "id": 3855,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "964:83:11",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_UniswapExchangeInterface_$5126",
+                      "typeString": "contract UniswapExchangeInterface"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "928:119:11"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 3857,
+                    "name": "exchange",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 3849,
+                    "src": "1065:8:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_UniswapExchangeInterface_$5126",
+                      "typeString": "contract UniswapExchangeInterface"
+                    }
+                  },
+                  "functionReturnParameters": 3829,
+                  "id": 3858,
+                  "nodeType": "Return",
+                  "src": "1058:15:11"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "06f2bf62",
+            "id": 3860,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getExchange",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 3826,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3825,
+                  "name": "_token",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3860,
+                  "src": "700:14:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3824,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "700:7:11",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "699:16:11"
+            },
+            "returnParameters": {
+              "id": 3829,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3828,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3860,
+                  "src": "761:24:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_UniswapExchangeInterface_$5126",
+                    "typeString": "contract UniswapExchangeInterface"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3827,
+                    "name": "UniswapExchangeInterface",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 5126,
+                    "src": "761:24:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_UniswapExchangeInterface_$5126",
+                      "typeString": "contract UniswapExchangeInterface"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "760:26:11"
+            },
+            "scope": 3875,
+            "src": "679:401:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3873,
+              "nodeType": "Block",
+              "src": "1144:44:11",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_contract$_IERC20_$465",
+                      "typeString": "contract IERC20"
+                    },
+                    "id": 3871,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "id": 3867,
+                      "name": "_ierc20",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3862,
+                      "src": "1161:7:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IERC20_$465",
+                        "typeString": "contract IERC20"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "hexValue": "30",
+                          "id": 3869,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "1179:1:11",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          }
+                        ],
+                        "id": 3868,
+                        "name": "IERC20",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 465,
+                        "src": "1172:6:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_IERC20_$465_$",
+                          "typeString": "type(contract IERC20)"
+                        }
+                      },
+                      "id": 3870,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1172:9:11",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IERC20_$465",
+                        "typeString": "contract IERC20"
+                      }
+                    },
+                    "src": "1161:20:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 3866,
+                  "id": 3872,
+                  "nodeType": "Return",
+                  "src": "1154:27:11"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "f70a2508",
+            "id": 3874,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isETH",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 3863,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3862,
+                  "name": "_ierc20",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3874,
+                  "src": "1101:14:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20_$465",
+                    "typeString": "contract IERC20"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3861,
+                    "name": "IERC20",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 465,
+                    "src": "1101:6:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$465",
+                      "typeString": "contract IERC20"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1100:16:11"
+            },
+            "returnParameters": {
+              "id": 3866,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3865,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3874,
+                  "src": "1138:4:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 3864,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1138:4:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1137:6:11"
+            },
+            "scope": 3875,
+            "src": "1086:102:11",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 3876,
+        "src": "225:965:11"
+      }
+    ],
+    "src": "27:1164:11"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/jenil/Desktop/code/hip/contracts/opyn/OptionsUtils.sol",
+    "exportedSymbols": {
+      "OptionsUtils": [
+        3875
+      ]
+    },
+    "id": 3876,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3795,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "27:32:11"
+      },
+      {
+        "absolutePath": "/Users/jenil/Desktop/code/hip/contracts/opyn/lib/CompoundOracleInterface.sol",
+        "file": "./lib/CompoundOracleInterface.sol",
+        "id": 3796,
+        "nodeType": "ImportDirective",
+        "scope": 3876,
+        "sourceUnit": 4030,
+        "src": "61:43:11",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jenil/Desktop/code/hip/contracts/opyn/lib/UniswapExchangeInterface.sol",
+        "file": "./lib/UniswapExchangeInterface.sol",
+        "id": 3797,
+        "nodeType": "ImportDirective",
+        "scope": 3876,
+        "sourceUnit": 5127,
+        "src": "105:44:11",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jenil/Desktop/code/hip/contracts/opyn/lib/UniswapFactoryInterface.sol",
+        "file": "./lib/UniswapFactoryInterface.sol",
+        "id": 3798,
+        "nodeType": "ImportDirective",
+        "scope": 3876,
+        "sourceUnit": 5167,
+        "src": "150:43:11",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jenil/Desktop/code/hip/contracts/ERC20/IERC20.sol",
+        "file": "../ERC20/IERC20.sol",
+        "id": 3799,
+        "nodeType": "ImportDirective",
+        "scope": 3876,
+        "sourceUnit": 466,
+        "src": "194:29:11",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 3875,
+        "linearizedBaseContracts": [
+          3875
+        ],
+        "name": "OptionsUtils",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "functionSelector": "c74c0fac",
+            "id": 3801,
+            "name": "UNISWAP_FACTORY",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 3875,
+            "src": "284:46:11",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_UniswapFactoryInterface_$5166",
+              "typeString": "contract UniswapFactoryInterface"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 3800,
+              "name": "UniswapFactoryInterface",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 5166,
+              "src": "284:23:11",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_UniswapFactoryInterface_$5166",
+                "typeString": "contract UniswapFactoryInterface"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "8a5e8cc7",
+            "id": 3803,
+            "name": "COMPOUND_ORACLE",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 3875,
+            "src": "337:46:11",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_CompoundOracleInterface_$4029",
+              "typeString": "contract CompoundOracleInterface"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 3802,
+              "name": "CompoundOracleInterface",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 4029,
+              "src": "337:23:11",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_CompoundOracleInterface_$4029",
+                "typeString": "contract CompoundOracleInterface"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3822,
+              "nodeType": "Block",
+              "src": "459:143:11",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 3814,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 3810,
+                      "name": "UNISWAP_FACTORY",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3801,
+                      "src": "469:15:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_UniswapFactoryInterface_$5166",
+                        "typeString": "contract UniswapFactoryInterface"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 3812,
+                          "name": "_uniswapFactory",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3805,
+                          "src": "511:15:11",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 3811,
+                        "name": "UniswapFactoryInterface",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5166,
+                        "src": "487:23:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_UniswapFactoryInterface_$5166_$",
+                          "typeString": "type(contract UniswapFactoryInterface)"
+                        }
+                      },
+                      "id": 3813,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "487:40:11",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_UniswapFactoryInterface_$5166",
+                        "typeString": "contract UniswapFactoryInterface"
+                      }
+                    },
+                    "src": "469:58:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_UniswapFactoryInterface_$5166",
+                      "typeString": "contract UniswapFactoryInterface"
+                    }
+                  },
+                  "id": 3815,
+                  "nodeType": "ExpressionStatement",
+                  "src": "469:58:11"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 3820,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 3816,
+                      "name": "COMPOUND_ORACLE",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3803,
+                      "src": "537:15:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_CompoundOracleInterface_$4029",
+                        "typeString": "contract CompoundOracleInterface"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 3818,
+                          "name": "_compoundOracle",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3807,
+                          "src": "579:15:11",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 3817,
+                        "name": "CompoundOracleInterface",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4029,
+                        "src": "555:23:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_CompoundOracleInterface_$4029_$",
+                          "typeString": "type(contract CompoundOracleInterface)"
+                        }
+                      },
+                      "id": 3819,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "555:40:11",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_CompoundOracleInterface_$4029",
+                        "typeString": "contract CompoundOracleInterface"
+                      }
+                    },
+                    "src": "537:58:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_CompoundOracleInterface_$4029",
+                      "typeString": "contract CompoundOracleInterface"
+                    }
+                  },
+                  "id": 3821,
+                  "nodeType": "ExpressionStatement",
+                  "src": "537:58:11"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 3823,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 3808,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3805,
+                  "name": "_uniswapFactory",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3823,
+                  "src": "402:23:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3804,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "402:7:11",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3807,
+                  "name": "_compoundOracle",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3823,
+                  "src": "427:23:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3806,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "427:7:11",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "401:50:11"
+            },
+            "returnParameters": {
+              "id": 3809,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "459:0:11"
+            },
+            "scope": 3875,
+            "src": "390:212:11",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3859,
+              "nodeType": "Block",
+              "src": "791:289:11",
+              "statements": [
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    },
+                    "id": 3841,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "id": 3834,
+                              "name": "_token",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 3825,
+                              "src": "841:6:11",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 3832,
+                              "name": "UNISWAP_FACTORY",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 3801,
+                              "src": "813:15:11",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_contract$_UniswapFactoryInterface_$5166",
+                                "typeString": "contract UniswapFactoryInterface"
+                              }
+                            },
+                            "id": 3833,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "getExchange",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 5146,
+                            "src": "813:27:11",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_address_$",
+                              "typeString": "function (address) view external returns (address)"
+                            }
+                          },
+                          "id": 3835,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "813:35:11",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 3831,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "nodeType": "ElementaryTypeNameExpression",
+                        "src": "805:7:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_address_$",
+                          "typeString": "type(address)"
+                        },
+                        "typeName": {
+                          "id": 3830,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "805:7:11",
+                          "typeDescriptions": {
+                            "typeIdentifier": null,
+                            "typeString": null
+                          }
+                        }
+                      },
+                      "id": 3836,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "805:44:11",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "hexValue": "30",
+                          "id": 3839,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "861:1:11",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          }
+                        ],
+                        "id": 3838,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "nodeType": "ElementaryTypeNameExpression",
+                        "src": "853:7:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_address_$",
+                          "typeString": "type(address)"
+                        },
+                        "typeName": {
+                          "id": 3837,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "853:7:11",
+                          "typeDescriptions": {
+                            "typeIdentifier": null,
+                            "typeString": null
+                          }
+                        }
+                      },
+                      "id": 3840,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "853:10:11",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address_payable",
+                        "typeString": "address payable"
+                      }
+                    },
+                    "src": "805:58:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 3847,
+                  "nodeType": "IfStatement",
+                  "src": "801:117:11",
+                  "trueBody": {
+                    "id": 3846,
+                    "nodeType": "Block",
+                    "src": "865:53:11",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "hexValue": "4e6f207061796f75742065786368616e6765",
+                              "id": 3843,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "string",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "886:20:11",
+                              "subdenomination": null,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_stringliteral_63c778e8c67cfe31d3025edd9a70a15ec31a53adcb4754594619db637d8ed367",
+                                "typeString": "literal_string \"No payout exchange\""
+                              },
+                              "value": "No payout exchange"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_stringliteral_63c778e8c67cfe31d3025edd9a70a15ec31a53adcb4754594619db637d8ed367",
+                                "typeString": "literal_string \"No payout exchange\""
+                              }
+                            ],
+                            "id": 3842,
+                            "name": "revert",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [
+                              5494,
+                              5495
+                            ],
+                            "referencedDeclaration": 5495,
+                            "src": "879:6:11",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_revert_pure$_t_string_memory_ptr_$returns$__$",
+                              "typeString": "function (string memory) pure"
+                            }
+                          },
+                          "id": 3844,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "879:28:11",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_tuple$__$",
+                            "typeString": "tuple()"
+                          }
+                        },
+                        "id": 3845,
+                        "nodeType": "ExpressionStatement",
+                        "src": "879:28:11"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "assignments": [
+                    3849
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 3849,
+                      "name": "exchange",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 3859,
+                      "src": "928:33:11",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_UniswapExchangeInterface_$5126",
+                        "typeString": "contract UniswapExchangeInterface"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 3848,
+                        "name": "UniswapExchangeInterface",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 5126,
+                        "src": "928:24:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_UniswapExchangeInterface_$5126",
+                          "typeString": "contract UniswapExchangeInterface"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 3856,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 3853,
+                            "name": "_token",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3825,
+                            "src": "1030:6:11",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 3851,
+                            "name": "UNISWAP_FACTORY",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 3801,
+                            "src": "1002:15:11",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_UniswapFactoryInterface_$5166",
+                              "typeString": "contract UniswapFactoryInterface"
+                            }
+                          },
+                          "id": 3852,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "getExchange",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 5146,
+                          "src": "1002:27:11",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_address_$",
+                            "typeString": "function (address) view external returns (address)"
+                          }
+                        },
+                        "id": 3854,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1002:35:11",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 3850,
+                      "name": "UniswapExchangeInterface",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 5126,
+                      "src": "964:24:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_contract$_UniswapExchangeInterface_$5126_$",
+                        "typeString": "type(contract UniswapExchangeInterface)"
+                      }
+                    },
+                    "id": 3855,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "964:83:11",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_UniswapExchangeInterface_$5126",
+                      "typeString": "contract UniswapExchangeInterface"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "928:119:11"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 3857,
+                    "name": "exchange",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 3849,
+                    "src": "1065:8:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_UniswapExchangeInterface_$5126",
+                      "typeString": "contract UniswapExchangeInterface"
+                    }
+                  },
+                  "functionReturnParameters": 3829,
+                  "id": 3858,
+                  "nodeType": "Return",
+                  "src": "1058:15:11"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "06f2bf62",
+            "id": 3860,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getExchange",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 3826,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3825,
+                  "name": "_token",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3860,
+                  "src": "700:14:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3824,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "700:7:11",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "699:16:11"
+            },
+            "returnParameters": {
+              "id": 3829,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3828,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3860,
+                  "src": "761:24:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_UniswapExchangeInterface_$5126",
+                    "typeString": "contract UniswapExchangeInterface"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3827,
+                    "name": "UniswapExchangeInterface",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 5126,
+                    "src": "761:24:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_UniswapExchangeInterface_$5126",
+                      "typeString": "contract UniswapExchangeInterface"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "760:26:11"
+            },
+            "scope": 3875,
+            "src": "679:401:11",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3873,
+              "nodeType": "Block",
+              "src": "1144:44:11",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_contract$_IERC20_$465",
+                      "typeString": "contract IERC20"
+                    },
+                    "id": 3871,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "id": 3867,
+                      "name": "_ierc20",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3862,
+                      "src": "1161:7:11",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IERC20_$465",
+                        "typeString": "contract IERC20"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "hexValue": "30",
+                          "id": 3869,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "1179:1:11",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          }
+                        ],
+                        "id": 3868,
+                        "name": "IERC20",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 465,
+                        "src": "1172:6:11",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_IERC20_$465_$",
+                          "typeString": "type(contract IERC20)"
+                        }
+                      },
+                      "id": 3870,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1172:9:11",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IERC20_$465",
+                        "typeString": "contract IERC20"
+                      }
+                    },
+                    "src": "1161:20:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 3866,
+                  "id": 3872,
+                  "nodeType": "Return",
+                  "src": "1154:27:11"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "f70a2508",
+            "id": 3874,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isETH",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 3863,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3862,
+                  "name": "_ierc20",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3874,
+                  "src": "1101:14:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20_$465",
+                    "typeString": "contract IERC20"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 3861,
+                    "name": "IERC20",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 465,
+                    "src": "1101:6:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$465",
+                      "typeString": "contract IERC20"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1100:16:11"
+            },
+            "returnParameters": {
+              "id": 3866,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3865,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3874,
+                  "src": "1138:4:11",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 3864,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1138:4:11",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1137:6:11"
+            },
+            "scope": 3875,
+            "src": "1086:102:11",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 3876,
+        "src": "225:965:11"
+      }
+    ],
+    "src": "27:1164:11"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.0+commit.26b70077.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.1.0",
+  "updatedAt": "2020-05-22T17:04:41.532Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
