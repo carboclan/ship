@@ -18,7 +18,7 @@
      padding: 0;
      -webkit-font-smoothing: antialiased;
      color: white !important;
-     background-color: #000000 !important;
+     background-color: #000000 !important; 
      width: 100vw;
      overflow-x: hidden;
    }
