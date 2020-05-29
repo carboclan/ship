@@ -18,9 +18,9 @@ class CreateProject extends Component {
       specification: "",
       objectives: "",
       contributorSlots: [],
-      strikePrice: "0.0",
-      shippingDuration: "30",
-      exerciseableDuration: "30",
+      strikePrice: "0.1",
+      shippingDuration: "90",
+      exerciseableDuration: "90",
       transactionHash: ''
     };
   }
