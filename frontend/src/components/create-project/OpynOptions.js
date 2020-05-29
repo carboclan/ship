@@ -106,7 +106,7 @@ class OpynOptions extends Component {
                                                 marginTop: "1rem",
                 
                                          }}
-                                         onClick={this.createERC20Collateral}
+                                         onClick={this.createOptionsContract}
                                     >
                                         Issue
               </button></b>

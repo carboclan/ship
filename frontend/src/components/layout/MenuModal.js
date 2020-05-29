@@ -37,19 +37,16 @@ class SHIPModal  extends React.Component {
           <div className="links">
             <ul>
               <li>
-                <Link to={'/create'} onClick={this.props.onHide}>Create</Link>
-              </li>
-              <li>
                 <Link to={'/dashboard'} onClick={this.props.onHide}>Explore</Link>
               </li>
               <li>
-                <Link to={'/portfolio'} onClick={this.props.onHide}>Portfolio</Link>
-              </li>
-              <li>
-                <Link to={'/login'} onClick={this.props.onHide}>Login</Link>
+                <Link to={'/create'} onClick={this.props.onHide}>Create</Link>
               </li>
               <li>
                 <Link to={'/myship'} onClick={this.props.onHide}>My $HIP</Link>
+              </li>
+              <li>
+                <Link to={'/portfolio'} onClick={this.props.onHide}>Portfolio</Link>
               </li>
             </ul>
           </div>

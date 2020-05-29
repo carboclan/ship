@@ -133,7 +133,7 @@ class CreateProject extends Component {
                 <label for="productVersion" className="lb-sm">Product Version</label>
                 <input
                   onChange={this.onChange}
-                  value={this.state.name}
+                  value={this.state.productVersion}
                   id="productVersion"
                   type="text"
                   class="form-control"
