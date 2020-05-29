@@ -206,7 +206,7 @@ class CreateProject extends Component {
               </div>
               <div class="form-group">
               <label for="exerciseableDuration" className="lb-sm">
-                  Exerciseable Duration (days)
+                  Exerciseable Duration (Days)
                 </label>
                 <input
                   onChange={this.onChange}
@@ -281,7 +281,7 @@ class CreateProject extends Component {
               </div>
                 <button
                   style={{
-                    width: "100px",
+                    width: "200px",
                     borderRadius: "3px",
                     letterSpacing: "1.5px",
                     marginTop: "1rem",
@@ -289,7 +289,7 @@ class CreateProject extends Component {
                   type="submit"
                   className="btn"
                 >
-                  Create
+                  Save Project
                 </button>
                 <OpynOptions/>
                 <PuttableEquity />
@@ -332,7 +332,6 @@ const Container = styled.div`
   background: #BDB76B;
   }
   }
-
   .lb-sm {
     font-size: 14px;
   }

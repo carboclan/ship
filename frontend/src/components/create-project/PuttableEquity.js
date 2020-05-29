@@ -40,7 +40,7 @@ class PuttableEquity extends Component {
               <Box>
                 <Event>
                   <h2>
-                    <b>Financing Choices:</b>
+                    <b>Financing Choices</b>
                   </h2>
                   <h6>
                                     <b>Borrow with Compound: <span className="grey-text">Powered by</span>

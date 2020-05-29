@@ -30,18 +30,19 @@ import React from "react";
        <span className="red-text">{props.errors.responsibilities}</span>
      </div>
      <div className="input-field col s12">
+     <label for="equity">Equity Tokens (%)</label>
        <input
          onChange={(e) => props.onChange("equity", e.target.value)}
          value={props.contributor.equity}
          id="equity"
          type="number"
+         class="form-control"
          min={0}
          step={1}
          className={classnames("", {
            invalid: props.errors.equity,
          })}
        />
-       <label htmlFor="equity">Equity</label>
        <span className="red-text">{props.errors.equity}</span>
      </div>
    </div>
