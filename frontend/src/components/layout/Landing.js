@@ -1,192 +1,153 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
 import styled from 'styled-components';
-import {
-  Header, Main, textStyle
-} from '@aragon/ui';
+import { Link } from "react-router-dom";
+import LandingDashboard from '../dashboard/LandingDashboard';
+import GitHubLogin from 'github-login';
+import tick from '../assets/tick.png';
+import { breakpoint, BreakPoint, Button } from '@aragon/ui';
 
-class Landing extends Component {
+const medium = css => breakpoint('medium', css);
+const large = css => breakpoint('large', css);
+
+const onSuccess = response => console.log(response);
+const onFailure = response => console.error(response);
+
+class NewLanding extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+  }
+
   render() {
     return (
-      <LandingSection>
+      <div style={{ height: "75vh" }}>
         <Container>
-          <div style={{ height: "75vh" }} className="container valign-wrapper">
-            <div className="row">
-              <div className="col s12">
-                <h1 className="flow-text text-darken-1">
-                  Create your {" "} first {" "}
-                  <b>flash org</b> with <span className="hip">$HIP</span> ⚡️
-          </h1>
-                <br />
-                <div className="col s12">
-                  <Link
-                    to="/register"
-                    style={{
-                      width: "140px",
-                      borderRadius: "3px",
-                      letterSpacing: "1.5px"
-                    }}
-                    className="btn btn-large waves-effect waves-light hoverable accent-3"
-                  >
-                    Sign up
+          <EventsSection id="events">
+            <Box>
+              <Event>
+                <h2>
+                  <b>Earn FOUNDER'S EQUITY in a flash</b>
+                </h2>
+                <h2>
+                  <b>with an option to "cop out" to CASH.</b>
+                </h2>
+                <h6 style={{ color: "yellow" }}>
+                  <img src={tick} width="10" height="10" /> Join $HIP to earn
+                rewards by accomplishing project milestones:
+                <p style={{ color: "white" }}>apply to flash organizations to collaborate on short product sprints.</p>
+                </h6>
+                <h6 style={{ color: "yellow" }}>
+                  <img src={tick} width="10" height="10" /> Summon a $HIP to build the MVP
+                for your dream idea:
+                <p style={{ color: "white" }}>find accountable contributors prior to proving your product market fit.</p>
+                </h6>
+              </Event>
+              <Offsite>
+                <h6>SIGN UP WITH</h6>
+                <Link
+                  to="/register"
+                  className="btn"
+                >
+                  EMAIL
               </Link>
-                </div>
-              </div>
-            </div>
-          </div>
+                <h6>OR</h6>
+                <GitHubLogin clientId="fe47d6b2b5729043b08d"
+                  className="btn"
+                  redirectUri="http://localhost:3001/dashboard"
+                  onSuccess={onSuccess}
+                  onFailure={onFailure}
+                  buttonText="GITHUB" />
+              </Offsite>
+            </Box>
+            <br />
+            <h3>
+              Trending
+          </h3>
+            <LandingDashboard />
+          </EventsSection>
         </Container>
-      </LandingSection>
+      </div>
     );
   }
 }
 
-const LandingSection = styled.section`
-  min-height: 600px;
-  height: 80vh;
+const Event = styled.div`
+  background-color: #191919;
+  padding: 30px;
+  width: 100%;
+  ${medium('width: 70%;')};
+  iframe {
+    width: 100%;
+    height: 42vw;
+    ${medium('height: 23vw;')};
+  }
+  h6 {
+    margin: 60px 0 20px 0 !important;
+  }
+  h1 {
+    font-size: 10vw;
+    ${medium('font-size: 7vw;')};
+  }
+  h2 {
+      font-size: 26px;
+      font-family: 'FontBold';
+  }
+`;
+const Offsite = styled.div`
+  background-color: #191919;
+  padding: 30px;
+  width: 100%;
+  ${medium('width: 30%;')};
+  text-align: center;
+  h6 {
+    margin: 20px 0 20px 0 !important;
+    line-height: 1.4 !important;
+  }
+  h2 {
+    font-size: 22px;
+    letter-spacing: 4px;
+    color: #ffffff;
+  }
+  .btn {
+  border: solid 1px #BDB76B;
+  font-size: 1rem;
+  text-align: center;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+  width: 200px;
+  height: 50px;
+  max-width: 100%;
+  display: inherit;
+  padding: 15px;
+  cursor: pointer;
+  margin: 20px auto 0 auto;
+  text-decoration: none!important;
+  color: white!important;
+  &:hover {
+  background: #BDB76B;
+  }
+  }
+`;
+
+const EventsSection = styled.section`
+  min-height: 100vh;
+  height: auto;
+  padding: 0 0 100px 0;
+  margin-bottom: 100px;
+`;
+
+const Box = styled.div`
+  width: 100%;
+  min-height: 300px;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  ${medium('flex-direction: row;')};
 `;
 
 const Container = styled.div`
   width: 80%;
   margin: auto;
   height: 100%;
-  display:flex
-  align-items: center;
-  justify-content: flex-start;
-  .fist-title,
-  .fist-title::after {
-    animation-delay: var(--animation-delay, 1s);
-    animation-iteration-count: var(--iterations, 1);
-    animation-duration: var(--duration, 600ms);
-    animation-fill-mode: both;
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  }
-  .second-title,
-  .second-title::after {
-    animation-delay: var(--animation-delay, 1.5s);
-    animation-iteration-count: var(--iterations, 1);
-    animation-duration: var(--duration, 600ms);
-    animation-fill-mode: both;
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  }
-  .fist-title {
-    position: relative;
-    animation-name: clip-text;
-    max-width: 90vw;
-    &::after {
-      content: '';
-      position: absolute;
-      z-index: 999;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ff7c56;
-      transform: scaleX(0);
-      transform-origin: 0 50%;
-      pointer-events: none;
-      animation-name: text-revealer;
-    }
-  }
-  span.hip {
-    background: #2196f3;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #f44336, #2196f3);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #f44336, #2196f3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .second-title {
-    position: relative;
-    animation-name: clip-text2;
-    max-width: 90vw;
-    &::after {
-      content: '';
-      position: absolute;
-      z-index: 999;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ff5d5d;
-      transform: scaleX(0);
-      transform-origin: 0 50%;
-      pointer-events: none;
-      animation-name: text-revealer2;
-    }
-  }
-  @keyframes clip-text {
-    from {
-      clip-path: inset(0 100% 0 0);
-    }
-    to {
-      clip-path: inset(0 0 0 0);
-    }
-  }
-  @keyframes text-revealer {
-    0%,
-    50% {
-      transform-origin: 0 50%;
-    }
-    60%,
-    100% {
-      transform-origin: 100% 50%;
-    }
-    60% {
-      transform: scaleX(1);
-    }
-    100% {
-      transform: scaleX(0);
-    }
-  }
-  @keyframes clip-text2 {
-    from {
-      clip-path: inset(0 100% 0 0);
-    }
-    to {
-      clip-path: inset(0 0 0 0);
-    }
-  }
-  @keyframes text-revealer2 {
-    0%,
-    50% {
-      transform-origin: 0 50%;
-    }
-    60%,
-    100% {
-      transform-origin: 100% 50%;
-    }
-    60% {
-      transform: scaleX(1);
-    }
-    100% {
-      transform: scaleX(0);
-    }
-  }
-  h1 {
-    font-family: 'FontBold';
-    margin: 0;
-    text-align: left;
-    color: white;
-    font-size: 4.28rem;
-    @media only screen and (min-width: 1170px) and (max-width: 1330px) {
-      font-size: 9rem;
-    }
-    @media only screen and (min-width: 962px) and (max-width: 1170px) {
-      font-size: 8rem;
-    }
-    @media only screen and (min-width: 770px) and (max-width: 962px) {
-      font-size: 7rem;
-    }
-  }
-  span.pink {
-    word-break: break-all;
-    color: #ff5d5d;
-    background: -webkit-linear-gradient(left, #ff3333, #ff7c56);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .mobile-pink {
-    color: #ff5d5d;
-  }
 `;
 
-export default Landing;
+export default NewLanding;

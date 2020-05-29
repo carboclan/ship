@@ -1,14 +1,10 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-
+import chain from '../assets/zbox.png'
+import github from '../assets/github.png'
 import MesaLogo from '../assets/honeylemon.png'
-import plus from '../assets/plus.png'
 import liquid from '../assets/liquid.png'
 import flash from '../assets/flash.png'
-
-
-
-
 import {
   Header, Box, LinkBase, Tag,
 } from '@aragon/ui';
@@ -28,7 +24,7 @@ function Dashboard() {
             description="Build Flash Orgs"
             iconUrl={flash}
             onClick={() => {
-              history.push('/myvaults');
+              history.push('/create');
             }}
           />
         </div>
@@ -39,7 +35,7 @@ function Dashboard() {
             description="Game of DXes"
             iconUrl={liquid}
             onClick={() => {
-              history.push('/options/');
+              history.push('/create/');
             }}
           />
         </div>
@@ -49,7 +45,7 @@ function Dashboard() {
             description="Future mining and staking rewards."
             iconUrl={MesaLogo}
             onClick={() => {
-              history.push('/uniswap/');
+              history.push('/create/');
             }}
           />
         </div>
@@ -59,9 +55,9 @@ function Dashboard() {
       <div style={{ padding: '1%', display: 'flex', alignItems: 'center' }}>
         <div style={{ width: '30%', marginRight: '3%' }}>
           <MainButton
-            title="Create"
-            description="Create a Flash Org"
-            iconUrl={plus}
+            title="0Chain"
+            description="Flash Storage on Ethereum."
+            iconUrl={chain}
             onClick={() => {
               history.push('/create/');
             }}
@@ -69,9 +65,9 @@ function Dashboard() {
         </div>
         <div style={{ width: '30%', marginRight: '3%' }}>
           <MainButton
-            title="Create"
-            description="Create a Flash Org."
-            iconUrl={plus}
+            title="dPoS"
+            description="Delegated Proof of Democracy."
+            iconUrl={github}
             onClick={() => {
               history.push('/create/');
             }}

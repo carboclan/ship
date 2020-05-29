@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
 import {
-  Header, DataView, IdentityBadge, Button, Tabs, Timer
+  Header, DataView, IdentityBadge, Tabs, Timer
 } from '@aragon/ui';
 
 import { getPreference, storePreference } from '../../utils/storage';
@@ -15,17 +16,13 @@ function Portfolio() {
 
 
   const [tabSelected, setTabSelected] = useState(parseInt(storedOptionTab, 10));
-  const [showExpired, setShowExpired] = useState(storedShowExpired === '1'); // whether to show expired options
 
   const history = useHistory();
-  const goToToken = (addr) => {
-    history.push(`/portfolio/${addr}`);
-  };
 
   return (
     <div style={{ height: "75vh", marginTop: "75px" }}>
-      <Header primary="Account Balances" />
-      <div style={{backgroundColor: '#0000'}}>
+      <Header primary="Portfolio" />
+      <div className="back">
       <Tabs
         items={['oTokens', 'Compound', 'Aave']}
         selected={tabSelected}
@@ -36,7 +33,6 @@ function Portfolio() {
       />
       </div>
       <Exercise/>
-
       {tabSelected === 0 ? (
         <DataView
           fields={['Name', 'Options Contract', 'Expires in']}
@@ -78,6 +74,12 @@ function Portfolio() {
     </div>
   );
 }
+
+const Container = styled.div`
+{
+  background: #000000;
+  }
+`;
 
 export default Portfolio;
 

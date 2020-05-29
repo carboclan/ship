@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import styled from 'styled-components';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProject } from "../../actions/projectActions";
@@ -6,14 +7,11 @@ import classnames from "classnames";
 import ContributorSlot from "../contributor-slot";
 import Aave from '../aave-lending/Aave';
 import Borrow from '../compound'
+
 // Options details
 import ocDAI from '../../ocDAI';
 import optionsFactory from '../../optionsFactory';
 import web3 from '../../web3';
-
-import { breakpoint, BreakPoint } from '@aragon/ui';
-const medium = css => breakpoint('medium', css);
-const large = css => breakpoint('large', css);
 
 class CreateProject extends Component {
   constructor() {
@@ -35,9 +33,7 @@ class CreateProject extends Component {
     event.preventDefault();
     // Get available accounts from eth provider
     const accounts = await web3.eth.getAccounts();
-
-    //const factory = await OptionsFactory.at('0xABCD...');
-
+    
     // Creates an options contract
     await optionsFactory.methods.createOptionsContract("ETH",
       "1",
@@ -160,117 +156,134 @@ class CreateProject extends Component {
       console.log(errors);
     }
     console.log(this.state);
+
     return (
-      <div className="container" style={{ height: "75vh", marginTop: "100px" }}>
+      <Container style={{ height: "150vh", marginTop: "100px" }}>
         <div style={{ marginTop: "4rem" }} className="row">
-          <div className="col s8 offset-s2">
-            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+          <div className="col s8">
+            <div>
               <h2>
-                <p className="flow-text text-darken-1"><b>Create a Project</b></p>
+                <p className="flow-text text-darken-1"><b>Project Specification</b></p>
               </h2>
+              <br />
             </div>
             <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col s12">
+              <div className="form-row">
+                <div class="form-group col-md-6">
+                <label for="name" className="lb-sm">Project Title</label>
                 <input
                   onChange={this.onChange}
                   value={this.state.name}
                   id="name"
                   type="text"
+                  class="form-control"
                   className={classnames("", {
                     invalid: errors.name,
                   })}
                 />
-                <label htmlFor="name">Project Title</label>
                 <span className="red-text">{errors.name}</span>
-              </div>
-              <div className="input-field col s12">
+                </div>
+                <div class="form-group col-md-6">
+                <label for="productVersion" className="lb-sm">Product Version</label>
                 <input
                   onChange={this.onChange}
-                  value={this.state.productVersion}
+                  value={this.state.name}
                   id="productVersion"
                   type="text"
+                  class="form-control"
                   className={classnames("", {
                     invalid: errors.productVersion,
                   })}
                 />
-                <label htmlFor="productVersion">Product Version</label>
                 <span className="red-text">{errors.productVersion}</span>
+                </div>
               </div>
-              <div className="input-field col s12">
-                <textarea
+              <div class="form-group">
+              <label for="specification" className="lb-sm">Specification</label>
+                <input
                   onChange={this.onChange}
                   value={this.state.specification}
                   id="specification"
+                  type="text"
+                  class="form-control"
                   className={classnames("materialize-textarea", {
                     invalid: errors.specification,
                   })}
                 />
-                <label htmlFor="specification">Specification</label>
                 <span className="red-text">{errors.specification}</span>
               </div>
-              <div className="input-field col s12">
-                <textarea
+              <div class="form-group">
+              <label for="objectives" className="lb-sm">Target Project Milestones</label>
+                <input
                   onChange={this.onChange}
                   value={this.state.objectives}
                   id="objectives"
                   type="text"
+                  class="form-control"
                   className={classnames("materialize-textarea", {
                     invalid: errors.objectives,
                   })}
                 />
-                <label htmlFor="objectives">Target Project Milestones</label>
                 <span className="red-text">{errors.objectives}</span>
               </div>
-              <div className="input-field col s12">
+              <div class="form-group">
+              <label for="strikePrice" className="lb-sm">Strike Price (DAI) </label>
                 <input
                   onChange={this.onChangeCurrency}
                   value={this.state.strikePrice}
                   id="strikePrice"
                   type="text"
+                  class="form-control"
                   className={classnames("", {
                     invalid: errors.strikePrice,
                   })}
                 />
-                <label htmlFor="strikePrice">Strike Price (DAI) </label>
                 <span className="red-text">{errors.strikePrice}</span>
               </div>
-              <div className="input-field col s12">
+              <div class="form-group">
+              <label for="shippingDuration" className="lb-sm">
+                  Project Duration (Days)
+                </label>
                 <input
                   onChange={this.onChange}
                   value={this.state.shippingDuration}
                   id="shippingDuration"
                   type="number"
+                  class="form-control"
                   step={1}
                   min={1}
                   className={classnames("", {
                     invalid: errors.shippingDuration,
                   })}
                 />
-                <label htmlFor="shippingDuration">
-                  Project Duration (days)
-                </label>
                 <span className="red-text">{errors.shippingDuration}</span>
               </div>
-              <div className="input-field col s12">
+              <div class="form-group">
+              <label for="exerciseableDuration" className="lb-sm">
+                  Exerciseable Duration (days)
+                </label>
                 <input
                   onChange={this.onChange}
                   value={this.state.exerciseableDuration}
                   id="exerciseableDuration"
                   type="number"
+                  class="form-control"
                   step={1}
                   min={1}
                   className={classnames("", {
                     invalid: errors.exerciseableDuration,
                   })}
                 />
-                <label htmlFor="exerciseableDuration">
-                  Exerciseable Duration (days)
-                </label>
                 <span className="red-text">{errors.exerciseableDuration}</span>
               </div>
-              <p className="flow-text text-darken-1" style={{ paddingLeft: "29.250px" }}>
-                    <b>Contributors</b>
-                  </p>
+              <br />
+              <p className="flow-text text-darken-1">
+                <b>Flash Org Specification</b>
+              </p>
+              <br />
+              <p className="h1">
+                Add Contributors to Flash Org
+              </p>
               <span className="red-text">
                 {errors.contributorSlots && !errors.contribotorSlotIndex
                   ? "Must Contain at least one Contributor Slots"
@@ -289,7 +302,7 @@ class CreateProject extends Component {
                         marginTop: "1rem",
                       }}
                       type="button"
-                      className="btn btn-small waves-effect waves-light hoverable blue accent-3"
+                      className="btn"
                       onClick={() => this.onRemoveContributor(index)}
                     >
                       Remove
@@ -303,7 +316,7 @@ class CreateProject extends Component {
                     />
                   </div>
                 ))}
-                <div className="col s12" style={{ paddingLeft: "29.250px" }}>
+                <div>
                   <button
                     style={{
                       width: "100px",
@@ -312,69 +325,74 @@ class CreateProject extends Component {
                       marginTop: "1rem",
                     }}
                     type="button"
-                    className="btn btn-small waves-effect waves-light hoverable blue accent-3"
+                    className="btn"
                     onClick={this.onAddContributor}
                   >
                     Add
                   </button>
                 </div>
               </div>
-              <div className="col s12" >
+              <div >
                 <button
                   style={{
-                    width: "150px",
+                    width: "100px",
                     borderRadius: "3px",
                     letterSpacing: "1.5px",
                     marginTop: "1rem",
                   }}
                   type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                  className="btn"
                 >
                   Create
                 </button>
-                <div className="col s12" style={{paddingRight: "29.250px"}}>
+                <div>
                   <br />
                   <p className="flow-text text-darken-1">
-                    <b>Create an Options Contract</b>
+                    <b>Issue Puttable Equity</b>
                   </p>
+                  <div class="row">
+                  <span className="h1">
+                    Create an Options Contract
+                  </span>
                   <button
                     style={{
-                      width: "150px",
+                      width: "100px",
                       borderRadius: "3px",
                       letterSpacing: "1.5px",
-                      marginTop: "1rem"
+                      marginTop: "1rem",
                     }}
                     onClick={this.createOptionsContract}
-                    className="btn waves-effect waves-light hoverable blue accent-3"
+                    className="btn"
                   >
                     Create
             </button>
+            </div>
                 </div>
-                <div className="col s12" style={{paddingRight: "29.250px"}}>
+                <div>
                   <br />
-                  <p className="flow-text text-darken-1">
-                    <b>Add a vault, ERC20 collateral and Issue oTokens</b>
+                  <p className="h1">
+                    Add a vault, ERC20 collateral and Issue oTokens
                   </p>
                   <button
                     style={{
-                      width: "150px",
+                      width: "100px",
                       borderRadius: "3px",
                       letterSpacing: "1.5px",
-                      marginTop: "1rem"
+                      marginTop: "1rem",
                     }}
                     onClick={this.createOptionsContract}
-                    className="btn waves-effect waves-light hoverable blue accent-3"
+                    className="btn"
                   >
                     Issue
             </button>
                 </div>
-                <Aave/>
-                <Borrow/>
+                <Aave />
+                <Borrow />
               </div>
             </form>
           </div>
         </div>
-      </div>
+      </Container>
     );
   }
 }
@@ -389,6 +407,35 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
   errors: state.errors,
 });
+
+
+const Container = styled.div`
+  .btn {
+  border: solid 1px #BDB76B;
+  font-size: 1rem;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+  width: 200px;
+  height: 50px;
+  max-width: 100%;
+  display: inherit;
+  padding: 15px;
+  cursor: pointer;
+  margin: 20px auto 0 auto;
+  text-decoration: none!important;
+  color: white!important;
+  &:hover {
+  background: #BDB76B;
+  }
+  }
+
+  .lb-sm {
+    font-size: 14px;
+  }
+  .h1 {
+    font-size: 20px;
+  }
+`;
 
 
 export default connect(mapStateToProps, { createProject })(CreateProject);

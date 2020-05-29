@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import Web3 from "web3";
 
 // ABI imports
@@ -93,73 +94,49 @@ function Aave() {
         }
     }
 
-    /**
-     * Borrow DAI from Aave
-     * Note: User must have already deposited some collateral to borrow
-     */
-    async function borrow() {
-        const daiAmountinWei = web3.utils.toWei("1000", "ether").toString()
-        const daiAddress = "0x6B175474E89094C44Da98b954EedeAC495271d0F" // mainnet DAI
-        const interestRateMode = 2 // variable rate
-        const referralCode = "0"
-
-        try {
-            // Make the borrow transaction via LendingPool contract
-            const lpAddress = await getLendingPoolAddress()
-            const lpContract = new web3.eth.Contract(LendingPoolABI, lpAddress)
-            await lpContract.methods
-                .borrow(daiAddress, daiAmountinWei, interestRateMode, referralCode)
-                .send({ from: myAddress })
-                .catch((e) => {
-                    throw Error(`Error borrowing from the LendingPool contract: ${e.message}`)
-                })
-        } catch (e) {
-            alert(e.message)
-            console.log(e.message)
-        }
-    }
-
-    /**
-     * Repay an outstanding borrow with DAI
-     * Note: User must have borrowed DAI
-     */
-    async function Repay() {
-        const daiAmountinWei = web3.utils.toWei("1000", "ether").toString()
-        const daiAddress = "0x6B175474E89094C44Da98b954EedeAC495271d0F" // mainnet DAI
-
-        try {
-            // Repay via LendingPool contract
-            const lpAddress = await getLendingPoolAddress()
-            const lpContract = new web3.eth.Contract(LendingPoolABI, lpAddress)
-            await lpContract.methods
-                .repay(daiAddress, daiAmountinWei, myAddress)
-                .send({ from: myAddress })
-                .catch((e) => {
-                    throw Error(`Error repaying in the LendingPool contract: ${e.message}`)
-                })
-        } catch (e) {
-            alert(e.message)
-            console.log(e.message)
-        }
-    }
-
     return (
-        <div style={{paddingRight: "29.250px"}}>
+        <Container>
             <div className="row">
-                <div className="col s12">
+                <div>
                 <br/>
                     <p className="flow-text text-darken-1">
                         <b>Earn</b> interest with Aave
         </p>
                     <div className="col s12">
                     <br/>
-                        <button className="btn waves-effect waves-light hoverable accent-3" onClick={async () => await deposit()}>
+                        <button style={{
+                      width: "100px",
+                      borderRadius: "3px",
+                      letterSpacing: "1.5px",
+                      marginTop: "1rem",
+                    }} className="btn" onClick={async () => await deposit()}>
                             Deposit </button>
                     </div>
                 </div>
             </div>
-        </div>
+        </Container>
     )
 }
+
+const Container = styled.div`
+  .btn {
+  border: solid 1px #BDB76B;
+  font-size: 1rem;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+  width: 200px;
+  height: 50px;
+  max-width: 100%;
+  display: inherit;
+  padding: 15px;
+  cursor: pointer;
+  margin: 20px auto 0 auto;
+  text-decoration: none!important;
+  color: white!important;
+  &:hover {
+  background: #BDB76B;
+  }
+  }
+`;
 
 export default Aave;
