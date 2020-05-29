@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {breakpoint, BreakPoint, Button} from '@aragon/ui';
+import {breakpoint} from '@aragon/ui';
 const medium = css => breakpoint('medium', css);
 
 const Footer = () => (
@@ -24,9 +24,7 @@ const FooterSection = styled.section`
   overflow: hidden;
   margin-top: 100px;
 `;
-const A1Logo = styled.img`
-  ${medium('padding-right: 15px;')};
-`
+
 const Container = styled.div`
   width: 80%;
   margin: auto;

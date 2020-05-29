@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import web3 from "./web3";
 
 // ABI imports

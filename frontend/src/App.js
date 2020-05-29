@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import app from './app.css';
+import './app.css';
 import { Main } from '@aragon/ui';
 import { storePreference, getPreference } from './utils/storage';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import Web3 from "web3";
 
 // ABI imports
@@ -28,7 +27,7 @@ function Aave() {
 
     // Create the LendingPoolAddressProvider contract instance
     function getLendingPoolAddressProviderContract() {
-        const lpAddressProviderAddress = "0x24a42fD28C976A61Df5D00D0599C34c4f90748c8" // mainnet address, for other addresses: https://docs.aave.com/developers/developing-on-aave/deployed-contract-instances
+        const lpAddressProviderAddress = "0x1c8756FD2B28e9426CDBDcC7E3c4d64fa9A54728" // kovan address
         const lpAddressProviderContract = new web3.eth.Contract(LendingPoolAddressProviderABI, lpAddressProviderAddress)
         return lpAddressProviderContract
     }
@@ -64,7 +63,7 @@ function Aave() {
      */
     async function deposit() {
         const daiAmountinWei = web3.utils.toWei("1000", "ether").toString()
-        const daiAddress = "0x6B175474E89094C44Da98b954EedeAC495271d0F" // mainnet DAI
+        const daiAddress = "0x99dE7B407C4d26909527001e2556Aa5D159F316d" // kovan DAI
         const referralCode = "0"
 
         try {
@@ -95,48 +94,23 @@ function Aave() {
     }
 
     return (
-        <Container>
-            <div className="row">
-                <div>
-                <br/>
-                    <p className="flow-text text-darken-1">
-                        <b>Earn</b> interest with Aave
-        </p>
-                    <div className="col s12">
-                    <br/>
-                        <button style={{
-                      width: "100px",
-                      borderRadius: "3px",
-                      letterSpacing: "1.5px",
-                      marginTop: "1rem",
-                    }} className="btn" onClick={async () => await deposit()}>
-                            Deposit </button>
-                    </div>
-                </div>
-            </div>
-        </Container>
+        <>
+            <button
+                className="btn"
+                style={{
+                    marginLeft: "25px",
+                    width: "100px",
+                    borderRadius: "3px",
+                    letterSpacing: "1.5px",
+                    marginTop: "1rem",
+
+                }}
+                onClick={async () => await deposit()}
+            >
+                Deposit
+              </button>
+        </>
     )
 }
-
-const Container = styled.div`
-  .btn {
-  border: solid 1px #BDB76B;
-  font-size: 1rem;
-  letter-spacing: 2.6px;
-  text-transform: uppercase;
-  width: 200px;
-  height: 50px;
-  max-width: 100%;
-  display: inherit;
-  padding: 15px;
-  cursor: pointer;
-  margin: 20px auto 0 auto;
-  text-decoration: none!important;
-  color: white!important;
-  &:hover {
-  background: #BDB76B;
-  }
-  }
-`;
 
 export default Aave;

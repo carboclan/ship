@@ -5,12 +5,8 @@ import { connect } from "react-redux";
 import { createProject } from "../../actions/projectActions";
 import classnames from "classnames";
 import ContributorSlot from "../contributor-slot";
-import Aave from '../aave-lending/Aave';
-import Borrow from '../compound'
-
-// Options details
-import ocDAI from '../../ocDAI';
-import optionsFactory from '../../optionsFactory';
+import PuttableEquity from './PuttableEquity';
+import OpynOptions from './OpynOptions';
 import web3 from '../../web3';
 
 class CreateProject extends Component {
@@ -27,57 +23,6 @@ class CreateProject extends Component {
       exerciseableDuration: "30",
       transactionHash: ''
     };
-  }
-
-  createOptionsContract = async (event) => {
-    event.preventDefault();
-    // Get available accounts from eth provider
-    const accounts = await web3.eth.getAccounts();
-    
-    // Creates an options contract
-    await optionsFactory.methods.createOptionsContract("ETH",
-      "1",
-      "USDC",
-      '1',
-      "1",
-      "1",
-      "1",
-      "ETH",
-      '1574457816', '1').send({
-        from: accounts[0]
-      }, (error, transactionHash) => {
-        console.log(transactionHash);
-        this.setState({ transactionHash });
-      });
-  }
-
-  createERC20Collateral = async (event) => {
-    event.preventDefault();
-    // Get available accounts from eth provider
-    const accounts = await web3.eth.getAccounts();
-
-    // Specify the amount of ERC20 collateral you want to put down in wei
-    const collateral = '1000000000000000000';
-
-    // This function tells you the maximum number of options you can safely issue at 160% collateralization. 
-    // Note: It is reccomended that you create less than this amount of options. 
-    const maxNumOptions = 100;
-    //await ocDAI.methods.maxOTokensIssuable(collateral).call();
-
-    // Assuming you want to be 200% collateralized
-    const collateralizationRatio = 200;
-    const numOptions = maxNumOptions * 160 / collateralizationRatio;
-
-    // Creates an options contract
-    await ocDAI.methods.createERC20CollateralOption(
-      numOptions,
-      collateral,
-      '0x99dE7B407C4d26909527001e2556Aa5D159F316d').send({
-        from: accounts[0]
-      }, (error, transactionHash) => {
-        console.log(transactionHash);
-        this.setState({ transactionHash });
-      });
   }
 
   onChangeCurrency = (e) => {
@@ -163,7 +108,8 @@ class CreateProject extends Component {
           <div className="col s8">
             <div>
               <h2>
-                <p className="flow-text text-darken-1"><b>Project Specification</b></p>
+                <p className="flow-text text-darken-1" style={{textAlign: "center"}}><b>Project Specification</b></p>
+                <br/>
               </h2>
               <br />
             </div>
@@ -277,13 +223,14 @@ class CreateProject extends Component {
                 <span className="red-text">{errors.exerciseableDuration}</span>
               </div>
               <br />
-              <p className="flow-text text-darken-1">
+              <p className="flow-text text-darken-1" style={{textAlign: "center"}}>
                 <b>Flash Org Specification</b>
               </p>
               <br />
-              <p className="h1">
+              <p className="h1" style={{textAlign: "center"}}>
                 Add Contributors to Flash Org
               </p>
+              <br/>
               <span className="red-text">
                 {errors.contributorSlots && !errors.contribotorSlotIndex
                   ? "Must Contain at least one Contributor Slots"
@@ -332,7 +279,6 @@ class CreateProject extends Component {
                   </button>
                 </div>
               </div>
-              <div >
                 <button
                   style={{
                     width: "100px",
@@ -345,50 +291,8 @@ class CreateProject extends Component {
                 >
                   Create
                 </button>
-                <div>
-                  <br />
-                  <p className="flow-text text-darken-1">
-                    <b>Issue Puttable Equity</b>
-                  </p>
-                  <div class="row">
-                  <span className="h1">
-                    Create an Options Contract
-                  </span>
-                  <button
-                    style={{
-                      width: "100px",
-                      borderRadius: "3px",
-                      letterSpacing: "1.5px",
-                      marginTop: "1rem",
-                    }}
-                    onClick={this.createOptionsContract}
-                    className="btn"
-                  >
-                    Create
-            </button>
-            </div>
-                </div>
-                <div>
-                  <br />
-                  <p className="h1">
-                    Add a vault, ERC20 collateral and Issue oTokens
-                  </p>
-                  <button
-                    style={{
-                      width: "100px",
-                      borderRadius: "3px",
-                      letterSpacing: "1.5px",
-                      marginTop: "1rem",
-                    }}
-                    onClick={this.createOptionsContract}
-                    className="btn"
-                  >
-                    Issue
-            </button>
-                </div>
-                <Aave />
-                <Borrow />
-              </div>
+                <OpynOptions/>
+                <PuttableEquity />
             </form>
           </div>
         </div>

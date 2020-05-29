@@ -9,7 +9,7 @@ class Navbar extends React.Component {
     return (
       <AragonNavbar>
         <LogoLink to="/">
-          <Link to="/"><img src={logo} /></Link>
+          <Link to="/"><img alt="logo" src={logo} /></Link>
         </LogoLink>
         <MenuModal/>
       </AragonNavbar>
