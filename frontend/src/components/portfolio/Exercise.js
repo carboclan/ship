@@ -30,21 +30,9 @@ class Exercise extends Component {
 
       render() {
         return (
-            <Container style={{ paddingRight: "29.250px" }}>
-                <div className="row">
-                    <div className="col s12">
-                        <br />
-                        <p className="flow-text text-darken-1" align="center">
-                            <b>Exercise</b>
-    </p>
-                        <div className="col s12">
-                            <br />
+            <Container>
                             <button className="btn" onClick={this.exercise}>
                                 Cash Out </button>
-                                <br />
-                        </div>
-                    </div>
-                </div>
             </Container>
         )
     }
@@ -56,8 +44,8 @@ const Container = styled.div`
   font-size: 1rem;
   letter-spacing: 2.6px;
   text-transform: uppercase;
-  width: 200px;
-  height: 50px;
+  width: 100px;
+  height: 70px;
   max-width: 100%;
   display: inherit;
   padding: 15px;
