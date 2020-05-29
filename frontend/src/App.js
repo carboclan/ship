@@ -13,7 +13,6 @@ import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
-import Dashboard from "./components/dashboard/Dashboard";
 import Footer from "./components/layout/Footer";
 import CreateProject from "./components/create-project";
 import Portfolio from './components/portfolio';
@@ -60,9 +59,6 @@ function App()  {
             <Route exact path="/create" component={CreateProject} />
             <Route exact path="/portfolio" component={Portfolio} />
             <Route exact path="/myship" component={MyShip} />
-            <Switch>
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
-            </Switch>
             <Footer theme={theme} />
           </Main>
         </Router>

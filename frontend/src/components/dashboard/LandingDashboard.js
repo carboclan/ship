@@ -4,6 +4,9 @@ import MesaLogo from '../assets/honeylemon.png'
 import plus from '../assets/plus.png'
 import liquid from '../assets/liquid.png'
 import flash from '../assets/flash.png'
+import f from '../assets/1.png'
+import s from '../assets/2.png'
+import t from '../assets/3.png'
 
 
 
@@ -19,36 +22,14 @@ function Dashboard() {
     <div style={{ height: "75vh", marginTop: "15px" }}>
       <div style={{ padding: '1%', display: 'flex', alignItems: 'center' }}>
         <div style={{ width: '30%', marginRight: '3%' }}>
-          <MainButton
-            title="$HIP"
-            tag="new"
-            description="Build Flash Orgs"
-            iconUrl={flash}
-            onClick={() => {
-              history.push('/create');
-            }}
-          />
+          <img src={f} width="250px" height="250px"/>
         </div>
 
         <div style={{ width: '30%' }}>
-          <MainButton
-            title="Liqui3D"
-            description="Game of DXes"
-            iconUrl={liquid}
-            onClick={() => {
-              history.push('/create/');
-            }}
-          />
+        <img src={s} width="250px" height="250px"/>
         </div>
         <div style={{ width: '40%', marginLeft: '3%' }}>
-          <MainButton
-            title="HoneyLemon.market"
-            description="Future mining and staking rewards."
-            iconUrl={MesaLogo}
-            onClick={() => {
-              history.push('/create/');
-            }}
-          />
+        <img src={t} width="250px" height="250px"/>
         </div>
       </div>
     </div>

@@ -136,7 +136,7 @@ const EventsSection = styled.section`
 `;
 
 const Box = styled.div`
-  width: 100%;
+  width: 92%;
   min-height: 300px;
   margin-top: 100px;
   display: flex;
