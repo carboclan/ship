@@ -24,7 +24,65 @@ class CreateProject extends Component {
       transactionHash: ''
     };
   }
-  
+
+  createOptionsContract = async (event) => {
+    event.preventDefault();
+    // Get available accounts from eth provider
+    const accounts = await web3.eth.getAccounts();
+
+    // 
+
+    //const factory = await OptionsFactory.at('0xABCD...');
+    await optionsFactory.methods.addAsset('DAI', '0x95b58a6bff3d14b7db2f5cb5f0ad413dc2940658');
+    // await optionsFactory.methods
+
+    // Creates an options contract
+    await optionsFactory.methods.createOptionsContract("ETH",
+      "1",
+      "USDC",
+      '1',
+      "1",
+      "1",
+      "1",
+      "ETH",
+      '1574457816', '1').send({
+        from: accounts[0]
+      }, (error, transactionHash) => {
+        console.log(transactionHash);
+        this.setState({ transactionHash });
+      });
+  }
+
+  createERC20Collateral = async (event) => {
+    event.preventDefault();
+    // Get available accounts from eth provider
+    const accounts = await web3.eth.getAccounts();
+
+    // Specify the amount of ERC20 collateral you want to put down in wei
+    const collateral = '1000000000000000000';
+
+    // This function tells you the maximum number of options you can safely issue at 160% collateralization. 
+    // Note: It is reccomended that you create less than this amount of options. 
+    const maxNumOptions = 100;
+    //await ocDAI.methods.maxOTokensIssuable(collateral).call();
+
+    // Assuming you want to be 200% collateralized
+    const collateralizationRatio = 200;
+    const numOptions = maxNumOptions * 160 / collateralizationRatio;
+
+    // Creates an options contract
+    await ocDAI.methods.createERC20CollateralOption(
+      numOptions,
+      collateral,
+      '0x99dE7B407C4d26909527001e2556Aa5D159F316d').send({
+        from: accounts[0]
+      }, (error, transactionHash) => {
+        console.log(transactionHash);
+        this.setState({ transactionHash });
+      });
+  }
+
+>>>>>>> Stashed changes
   onChangeCurrency = (e) => {
     let value = e.target.value;
     value.replace(/[^0-9.]/, "");
