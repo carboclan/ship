@@ -78,7 +78,7 @@ contract CompoundBorrow {
        cDaiAddress = _cDaiAddress;
     }
 
-    function borrowErc20 (uint256 amount) public payable returns (bool) {
+    function borrowErc20 (uint256 amount) public payable returns (uint256) {
         // Supply ETH as collateral, get cETH in return
         cEth.mint.value(msg.value)();
 
@@ -123,13 +123,16 @@ contract CompoundBorrow {
         uint256 numDaiToBorrow = amount;
         uint256 numDaiToBorrowInWei = numDaiToBorrow * 1e18;
 
-        require(numDaiToBorrowInWei < maxBorrowDaiInWei, "borrow exceed max allowed number");
+        // require(numDaiToBorrowInWei < maxBorrowDaiInWei, "borrow exceed max allowed number");
 
         // Borrow DAI
         cDai.borrow(numDaiToBorrowInWei);
-        emit Log("Borrow DAI amount", amount);
 
-        return true;
+         // Get the borrow balance
+        uint256 borrows = cDai.borrowBalanceCurrent(address(this));
+        emit Log("Borrow DAI amount", borrows);
+
+        return borrows;
     }
 
     function getBorrowBalance() public returns (uint256) {

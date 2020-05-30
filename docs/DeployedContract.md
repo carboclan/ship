@@ -60,8 +60,8 @@
 
    Deploying 'CompoundBorrow'
    --------------------------
-   - transaction hash:    0xa6301c8b826502dca6490b197021ecb996dee2b06cf37d4970164deff95157f9
-   - contract address:    0xc9Dfd4D6a7d00565b4145E50C6ee9038cf738F2a
+   - transaction hash:    0xdeae5519b9b54613b3055300e1c2e65223e4c592e814c5ef4a75bf7af56a9cf0
+   - contract address:    0x389d8e3d0b8f8d26d319b20ed8acb798d081cada
    - account:             0x5224abe5757eCe7c9BE1bc72102Ed1E7F02D8003
 
 7_ERC20_migration.js

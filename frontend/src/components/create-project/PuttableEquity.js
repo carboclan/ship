@@ -24,13 +24,22 @@ class PuttableEquity extends Component {
         event.preventDefault();
         // Get available accounts from eth provider
         const accounts = await web3.eth.getAccounts();
+        
+        const daiToRepayBorrow = '1';
+        const ethToSupplyAsCollateral = '1';
 
-        await CompoundBorrow.methods.borrowErc20('1').send({
-            from: accounts[0]
+        console.log("HERE");
+
+        let result = await CompoundBorrow.methods.borrowErc20(daiToRepayBorrow).send({
+            from: accounts[0],
+            gasLimit: web3.utils.toHex(5000000),      // posted at compound.finance/developers#gas-costs
+            value: web3.utils.toHex(web3.utils.toWei(ethToSupplyAsCollateral, 'ether'))
         }, (error, transactionHash) => {
             console.log(transactionHash);
             this.setState({ transactionHash });
         });
+
+        console.log(result.events.MyLog);
     }
 
     render() {

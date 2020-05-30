@@ -1,6 +1,6 @@
 pragma solidity >=0.4.22 <0.7.0;
 
-import "./IERC20.sol";
+import "./ERC20/IERC20.sol";
 
 contract DumbOpyn {
 
@@ -14,7 +14,7 @@ contract DumbOpyn {
         uint end_exercise_period;
 
         IERC20 collateral_token;
-        uint collateral_amount;
+        uint256 collateral_amount;
 
         IERC20 underlying_token;
         uint underlying_amount;
@@ -24,9 +24,9 @@ contract DumbOpyn {
 
     uint next_id;
 
-    function newPut(address executor, uint begin_exercise_period, uint end_exercise_period, IERC20 collateral_token, uint collateral_amount, address underlying_token, uint underlying_amount) external {
+    function newPut(address executor, uint begin_exercise_period, uint end_exercise_period, IERC20 collateral_token, uint collateral_amount, IERC20 underlying_token, uint underlying_amount) external {
         address creator = msg.sender;
-        collateral_token.transferFrom(creator, this.address, collateral_amount);
+        collateral_token.transferFrom(creator, address(this), collateral_amount);
 
         puts[next_id] = Put(
             next_id,
@@ -53,8 +53,8 @@ contract DumbOpyn {
 
         put.underlying_token.transferFrom(put.executor, put.creator, put.underlying_amount);
 
-        put.collateral_token.trasfer(put.executor, put.collateral_amount);
+        // put.collateral_token.trasfer(put.executor, put.collateral_amount);
 
-        puts[id] = Put();
+        // puts[id] = Put();
     }
 }

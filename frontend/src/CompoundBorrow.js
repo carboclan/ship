@@ -204,6 +204,6 @@ let abi = [
     }
   ];
 
-let address = '0xc9Dfd4D6a7d00565b4145E50C6ee9038cf738F2a';
+let address = '0x389D8e3d0b8F8d26d319B20Ed8Acb798d081cAdA'; //kovan
 
 export default new web3.eth.Contract(abi, address);
