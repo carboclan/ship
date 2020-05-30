@@ -13,10 +13,10 @@ class CreateProject extends Component {
   constructor() {
     super();
     this.state = {
-      name: "",
-      productVersion: "",
-      specification: "",
-      objectives: "",
+      name: "SHIP",
+      productVersion: "1.0",
+      specification: "Project for HackMoney hackathon",
+      objectives: "A platform for bootstrapping MVPs for side-projects with fair and sustainable incentive alignment. ",
       contributorSlots: [],
       strikePrice: "0.1",
       shippingDuration: "90",
@@ -24,7 +24,7 @@ class CreateProject extends Component {
       transactionHash: ''
     };
   }
-
+  
   onChangeCurrency = (e) => {
     let value = e.target.value;
     value.replace(/[^0-9.]/, "");
@@ -76,7 +76,7 @@ class CreateProject extends Component {
       specification: this.state.specification,
       objectives: this.state.objectives,
       contributorSlots: this.state.contributorSlots,
-      strikePrice: web3.utils.toWei(this.state.strikePrice), // currency
+      strikePrice: web3.utils.toWei(this.state.strikePrice.toString(), "wei"), // currency
       shippingDuration: this.state.shippingDuration * 86400, // day to seconds
       exerciseableDuration: this.state.exerciseableDuration * 86400, // day to seconds
     };

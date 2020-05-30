@@ -27,7 +27,7 @@ function Aave() {
 
     // Create the LendingPoolAddressProvider contract instance
     function getLendingPoolAddressProviderContract() {
-        const lpAddressProviderAddress = "0x1c8756FD2B28e9426CDBDcC7E3c4d64fa9A54728" // kovan address
+        const lpAddressProviderAddress = "0x506B0B2CF20FAA8f38a4E2B524EE43e1f4458Cc5" // kovan address
         const lpAddressProviderContract = new web3.eth.Contract(LendingPoolAddressProviderABI, lpAddressProviderAddress)
         return lpAddressProviderContract
     }
